@@ -9,9 +9,7 @@
 import Foundation
 
 public class ICEStatusParser {
-    public init() {
-        
-    }
+    public init() {}
     
     public func parseDataToICETrip(data: NSData) -> ICETripInformation {
         do {
@@ -26,16 +24,17 @@ public class ICEStatusParser {
         }
         catch {}
         fatalError("Worng JSON data")
-
     }
     
     public func parseDataToICEStatus(data: NSData) -> ICEStatus {
         do {
             if let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? Dictionary<String, AnyObject> {
-                let latitude = jsonData["latitude"] as! Float
-                let longitude = jsonData["longitude"] as! Float
+                let latitude = jsonData["latitude"] as! Double
+                let longitude = jsonData["longitude"] as! Double
                 let speed = jsonData["speed"] as! Float
-                return ICEStatus(latitude: latitude, longitude: longitude, speed: speed)
+                let location = Location(latitude: latitude, longitude: longitude)
+                
+                return ICEStatus(location: location, speed: speed)
             }
         }
         catch {}

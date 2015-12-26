@@ -9,7 +9,6 @@
 import Foundation
 
 public struct ICEStatus {
-    let latitude: Float
-    let longitude: Float
-    let speed: Float
+    public let location: Location
+    public let speed: Float
 }

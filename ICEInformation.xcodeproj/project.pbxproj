@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94157D4B1C2EB5B100557392 /* Location+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94157D4A1C2EB5B100557392 /* Location+CLLocation.swift */; };
+		94157D4D1C2EB60900557392 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94157D4C1C2EB60800557392 /* Station.swift */; };
 		9431F9BD1C19935000860884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431F9BC1C19935000860884 /* AppDelegate.swift */; };
 		9431F9BF1C19935000860884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431F9BE1C19935000860884 /* ViewController.swift */; };
 		9431F9C21C19935000860884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9431F9C01C19935000860884 /* Main.storyboard */; };
@@ -64,6 +66,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		94157D4A1C2EB5B100557392 /* Location+CLLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CLLocation.swift"; sourceTree = "<group>"; };
+		94157D4C1C2EB60800557392 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		9431F9B91C19935000860884 /* ICEInformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICEInformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9431F9BC1C19935000860884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9431F9BE1C19935000860884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94157D491C2EB59400557392 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				943FF8511C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift */,
+				94157D4A1C2EB5B100557392 /* Location+CLLocation.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		9431F9B01C19935000860884 = {
 			isa = PBXGroup;
 			children = (
@@ -168,11 +181,12 @@
 		943FF8491C2D63D9009E7C5F /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				94157D491C2EB59400557392 /* Extensions */,
 				9431F9EA1C1993FA00860884 /* ICEStatusParser.swift */,
 				943FF84B1C2D66EA009E7C5F /* ICEStatus.swift */,
 				943FF84D1C2D675C009E7C5F /* ICETripInformation.swift */,
-				943FF8511C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift */,
 				943FF8531C2EA205009E7C5F /* ICEStatusURLRessources.swift */,
+				94157D4C1C2EB60800557392 /* Station.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -332,9 +346,11 @@
 			files = (
 				943FF84A1C2D63E9009E7C5F /* ICEStatusParser.swift in Sources */,
 				943FF8541C2EA205009E7C5F /* ICEStatusURLRessources.swift in Sources */,
+				94157D4B1C2EB5B100557392 /* Location+CLLocation.swift in Sources */,
 				943FF84C1C2D66EA009E7C5F /* ICEStatus.swift in Sources */,
 				943FF84E1C2D675C009E7C5F /* ICETripInformation.swift in Sources */,
 				943FF8521C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift in Sources */,
+				94157D4D1C2EB60900557392 /* Station.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +602,7 @@
 				943FF8431C2D63AF009E7C5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		943FF8481C2D63AF009E7C5F /* Build configuration list for PBXNativeTarget "ICEInformationiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -594,6 +611,7 @@
 				943FF8451C2D63AF009E7C5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

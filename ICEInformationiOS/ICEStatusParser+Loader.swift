@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension ICEStatusParser {
+public extension ICEStatusParser {
     public func loadICEStatus(onSucces: (ICEStatus)->(), onError:(NSError)->()) {
         let urlSession = NSURLSession.sharedSession()
         let request = NSURLRequest(URL: statusAPIURL)
@@ -19,7 +19,10 @@ extension ICEStatusParser {
                 return
             }
             let iceStatus = self.parseDataToICEStatus(data)
-            onSucces(iceStatus)
+            dispatch_async(dispatch_get_main_queue(), {
+                onSucces(iceStatus)
+            })
+            
         }
         
         task.resume()
