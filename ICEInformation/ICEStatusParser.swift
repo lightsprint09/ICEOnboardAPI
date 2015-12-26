@@ -11,34 +11,30 @@ import Foundation
 public class ICEStatusParser {
     public init() {}
     
-    public func parseDataToICETrip(data: NSData) -> ICETripInformation {
-        do {
-            if let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? Dictionary<String, AnyObject> {
-                let train = jsonData["trainType"] as! String
-                let trainstopData = jsonData["stops"] as! Array<[String: AnyObject]>
-                let stops = trainstopData.map(parseDictToStation)
-                let tripInfo = ICETripInformation(trainNumber: train, stops: stops)
-                
-                return tripInfo
-            }
+    public func parseDataToICETrip(data: NSData) throws -> ICETripInformation {
+        if let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? Dictionary<String, AnyObject> {
+            let train = jsonData["trainType"] as! String
+            let trainstopData = jsonData["stops"] as! Array<[String: AnyObject]>
+            let stops = trainstopData.map(parseDictToStation)
+            let tripInfo = ICETripInformation(trainNumber: train, stops: stops)
+            
+            return tripInfo
         }
-        catch {}
-        fatalError("Worng JSON data")
+        throw NSError(domain: "Failed to parse ICE Trip Info", code: 0, userInfo: nil)
     }
     
-    public func parseDataToICEStatus(data: NSData) -> ICEStatus {
-        do {
-            if let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? Dictionary<String, AnyObject> {
-                let latitude = jsonData["latitude"] as! Double
-                let longitude = jsonData["longitude"] as! Double
-                let speed = jsonData["speed"] as! Float
-                let location = Location(latitude: latitude, longitude: longitude)
-                
-                return ICEStatus(location: location, speed: speed)
-            }
+
+    
+    public func parseDataToICEStatus(data: NSData) throws -> ICEStatus {
+        if let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? Dictionary<String, AnyObject> {
+            let latitude = jsonData["latitude"] as! Double
+            let longitude = jsonData["longitude"] as! Double
+            let speed = jsonData["speed"] as! Float
+            let location = Location(latitude: latitude, longitude: longitude)
+            
+            return ICEStatus(location: location, speed: speed)
         }
-        catch {}
-        fatalError("Worng JSON data")
+        throw NSError(domain: "Failed to parse ICE Status ", code: 0, userInfo: nil)
     }
     
     //MARK: private

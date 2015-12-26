@@ -18,10 +18,16 @@ public extension ICEStatusParser {
                 onError(finalError)
                 return
             }
-            let iceStatus = self.parseDataToICEStatus(data)
-            dispatch_async(dispatch_get_main_queue(), {
-                onSucces(iceStatus)
-            })
+            do {
+                let iceStatus = try self.parseDataToICEStatus(data)
+                dispatch_async(dispatch_get_main_queue(), {
+                    onSucces(iceStatus)
+                })
+            } catch {
+                onError(NSError(domain: "Error parsing", code: 0, userInfo: nil))
+            }
+            
+            
             
         }
         

@@ -10,20 +10,19 @@ import XCTest
 @testable import ICEInformationiOS
 
 class ICEInformationiOSTests: XCTestCase {
-    let statusLoader = ICEStatusLoader()
+    let statusLoader = ICEStatusParser()
     
     func testParseICEStatus() {
         let data = statusDataString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let iceStatus = statusLoader.parseDataToICEStatus(data)
-        XCTAssertEqual(iceStatus.latitude, 49.404305)
-        XCTAssertEqual(iceStatus.longitude, 8.547148)
+        let iceStatus = try! statusLoader.parseDataToICEStatus(data)
+        XCTAssertEqual(iceStatus.location.latitude, 49.404305)
+        XCTAssertEqual(iceStatus.location.longitude, 8.547148)
         XCTAssertEqual(iceStatus.speed, 221.8000030517578)
-        
     }
     
     func testParseICETripInformation() {
         let data = tripInforationDataString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let tripInfo = statusLoader.parseDataToICETrip(data)
+        let tripInfo = try! statusLoader.parseDataToICETrip(data)
         XCTAssertEqual(tripInfo.stops.count, 10)
         print(tripInfo)
     }

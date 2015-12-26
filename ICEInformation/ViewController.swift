@@ -17,7 +17,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         fetchData()
         NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("fetchData"), userInfo: nil, repeats: true)
     }
