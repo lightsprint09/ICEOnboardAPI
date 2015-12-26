@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9431F9B81C19935000860884"
+               BuildableName = "ICEInformation.app"
+               BlueprintName = "ICEInformation"
+               ReferencedContainer = "container:ICEInformation.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -12,7 +28,46 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9431F9CC1C19935000860884"
+               BuildableName = "ICEInformationTests.xctest"
+               BlueprintName = "ICEInformationTests"
+               ReferencedContainer = "container:ICEInformation.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9431F9D71C19935000860884"
+               BuildableName = "ICEInformationUITests.xctest"
+               BlueprintName = "ICEInformationUITests"
+               ReferencedContainer = "container:ICEInformation.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "943FF8331C2D63AF009E7C5F"
+               BuildableName = "ICEInformationiOSTests.xctest"
+               BlueprintName = "ICEInformationiOSTests"
+               ReferencedContainer = "container:ICEInformation.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "9431F9B81C19935000860884"
+            BuildableName = "ICEInformation.app"
+            BlueprintName = "ICEInformation"
+            ReferencedContainer = "container:ICEInformation.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +81,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "9431F9B81C19935000860884"
+            BuildableName = "ICEInformation.app"
+            BlueprintName = "ICEInformation"
+            ReferencedContainer = "container:ICEInformation.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +100,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "9431F9B81C19935000860884"
+            BuildableName = "ICEInformation.app"
+            BlueprintName = "ICEInformation"
+            ReferencedContainer = "container:ICEInformation.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

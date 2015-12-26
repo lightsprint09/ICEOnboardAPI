@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ICEInformationiOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>9431F9D71C19935000860884</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>943FF82A1C2D63AF009E7C5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>943FF8331C2D63AF009E7C5F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

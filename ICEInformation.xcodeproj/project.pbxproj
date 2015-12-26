@@ -12,26 +12,56 @@
 		9431F9C21C19935000860884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9431F9C01C19935000860884 /* Main.storyboard */; };
 		9431F9C41C19935000860884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9431F9C31C19935000860884 /* Assets.xcassets */; };
 		9431F9C71C19935000860884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9431F9C51C19935000860884 /* LaunchScreen.storyboard */; };
-		9431F9D21C19935000860884 /* ICEInformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431F9D11C19935000860884 /* ICEInformationTests.swift */; };
-		9431F9DD1C19935000860884 /* ICEInformationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431F9DC1C19935000860884 /* ICEInformationUITests.swift */; };
+		943FF82E1C2D63AF009E7C5F /* ICEInformationiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 943FF82D1C2D63AF009E7C5F /* ICEInformationiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		943FF8351C2D63AF009E7C5F /* ICEInformationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FF82B1C2D63AF009E7C5F /* ICEInformationiOS.framework */; };
+		943FF83C1C2D63AF009E7C5F /* ICEInformationiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF83B1C2D63AF009E7C5F /* ICEInformationiOSTests.swift */; };
+		943FF8401C2D63AF009E7C5F /* ICEInformationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FF82B1C2D63AF009E7C5F /* ICEInformationiOS.framework */; };
+		943FF8411C2D63AF009E7C5F /* ICEInformationiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 943FF82B1C2D63AF009E7C5F /* ICEInformationiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		943FF84A1C2D63E9009E7C5F /* ICEStatusParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431F9EA1C1993FA00860884 /* ICEStatusParser.swift */; };
+		943FF84C1C2D66EA009E7C5F /* ICEStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF84B1C2D66EA009E7C5F /* ICEStatus.swift */; };
+		943FF84E1C2D675C009E7C5F /* ICETripInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF84D1C2D675C009E7C5F /* ICETripInformation.swift */; };
+		943FF8501C2E9F7C009E7C5F /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF84F1C2E9F7C009E7C5F /* TestData.swift */; };
+		943FF8521C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF8511C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift */; };
+		943FF8541C2EA205009E7C5F /* ICEStatusURLRessources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF8531C2EA205009E7C5F /* ICEStatusURLRessources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9431F9CE1C19935000860884 /* PBXContainerItemProxy */ = {
+		943FF8361C2D63AF009E7C5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9431F9B11C19935000860884 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 943FF82A1C2D63AF009E7C5F;
+			remoteInfo = ICEInformationiOS;
+		};
+		943FF8381C2D63AF009E7C5F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9431F9B11C19935000860884 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9431F9B81C19935000860884;
 			remoteInfo = ICEInformation;
 		};
-		9431F9D91C19935000860884 /* PBXContainerItemProxy */ = {
+		943FF83E1C2D63AF009E7C5F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9431F9B11C19935000860884 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9431F9B81C19935000860884;
-			remoteInfo = ICEInformation;
+			remoteGlobalIDString = 943FF82A1C2D63AF009E7C5F;
+			remoteInfo = ICEInformationiOS;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		943FF8471C2D63AF009E7C5F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				943FF8411C2D63AF009E7C5F /* ICEInformationiOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9431F9B91C19935000860884 /* ICEInformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICEInformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,12 +71,18 @@
 		9431F9C31C19935000860884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9431F9C61C19935000860884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9431F9C81C19935000860884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9431F9CD1C19935000860884 /* ICEInformationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ICEInformationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9431F9D11C19935000860884 /* ICEInformationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICEInformationTests.swift; sourceTree = "<group>"; };
-		9431F9D31C19935000860884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9431F9D81C19935000860884 /* ICEInformationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ICEInformationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9431F9DC1C19935000860884 /* ICEInformationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICEInformationUITests.swift; sourceTree = "<group>"; };
-		9431F9DE1C19935000860884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9431F9EA1C1993FA00860884 /* ICEStatusParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICEStatusParser.swift; path = ../ICEInformation/ICEStatusParser.swift; sourceTree = "<group>"; };
+		943FF82B1C2D63AF009E7C5F /* ICEInformationiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ICEInformationiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		943FF82D1C2D63AF009E7C5F /* ICEInformationiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICEInformationiOS.h; sourceTree = "<group>"; };
+		943FF82F1C2D63AF009E7C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		943FF8341C2D63AF009E7C5F /* ICEInformationiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ICEInformationiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		943FF83B1C2D63AF009E7C5F /* ICEInformationiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICEInformationiOSTests.swift; sourceTree = "<group>"; };
+		943FF83D1C2D63AF009E7C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		943FF84B1C2D66EA009E7C5F /* ICEStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICEStatus.swift; sourceTree = "<group>"; };
+		943FF84D1C2D675C009E7C5F /* ICETripInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICETripInformation.swift; sourceTree = "<group>"; };
+		943FF84F1C2E9F7C009E7C5F /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		943FF8511C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ICEStatusParser+Loader.swift"; sourceTree = "<group>"; };
+		943FF8531C2EA205009E7C5F /* ICEStatusURLRessources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICEStatusURLRessources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,20 +90,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943FF8401C2D63AF009E7C5F /* ICEInformationiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9431F9CA1C19935000860884 /* Frameworks */ = {
+		943FF8271C2D63AF009E7C5F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9431F9D51C19935000860884 /* Frameworks */ = {
+		943FF8311C2D63AF009E7C5F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943FF8351C2D63AF009E7C5F /* ICEInformationiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,8 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				9431F9BB1C19935000860884 /* ICEInformation */,
-				9431F9D01C19935000860884 /* ICEInformationTests */,
-				9431F9DB1C19935000860884 /* ICEInformationUITests */,
+				943FF82C1C2D63AF009E7C5F /* ICEInformationiOS */,
+				943FF83A1C2D63AF009E7C5F /* ICEInformationiOSTests */,
 				9431F9BA1C19935000860884 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,8 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				9431F9B91C19935000860884 /* ICEInformation.app */,
-				9431F9CD1C19935000860884 /* ICEInformationTests.xctest */,
-				9431F9D81C19935000860884 /* ICEInformationUITests.xctest */,
+				943FF82B1C2D63AF009E7C5F /* ICEInformationiOS.framework */,
+				943FF8341C2D63AF009E7C5F /* ICEInformationiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,25 +145,50 @@
 			path = ICEInformation;
 			sourceTree = "<group>";
 		};
-		9431F9D01C19935000860884 /* ICEInformationTests */ = {
+		943FF82C1C2D63AF009E7C5F /* ICEInformationiOS */ = {
 			isa = PBXGroup;
 			children = (
-				9431F9D11C19935000860884 /* ICEInformationTests.swift */,
-				9431F9D31C19935000860884 /* Info.plist */,
+				943FF8491C2D63D9009E7C5F /* Source */,
+				943FF82D1C2D63AF009E7C5F /* ICEInformationiOS.h */,
+				943FF82F1C2D63AF009E7C5F /* Info.plist */,
 			);
-			path = ICEInformationTests;
+			path = ICEInformationiOS;
 			sourceTree = "<group>";
 		};
-		9431F9DB1C19935000860884 /* ICEInformationUITests */ = {
+		943FF83A1C2D63AF009E7C5F /* ICEInformationiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				9431F9DC1C19935000860884 /* ICEInformationUITests.swift */,
-				9431F9DE1C19935000860884 /* Info.plist */,
+				943FF83B1C2D63AF009E7C5F /* ICEInformationiOSTests.swift */,
+				943FF83D1C2D63AF009E7C5F /* Info.plist */,
+				943FF84F1C2E9F7C009E7C5F /* TestData.swift */,
 			);
-			path = ICEInformationUITests;
+			path = ICEInformationiOSTests;
+			sourceTree = "<group>";
+		};
+		943FF8491C2D63D9009E7C5F /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9431F9EA1C1993FA00860884 /* ICEStatusParser.swift */,
+				943FF84B1C2D66EA009E7C5F /* ICEStatus.swift */,
+				943FF84D1C2D675C009E7C5F /* ICETripInformation.swift */,
+				943FF8511C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift */,
+				943FF8531C2EA205009E7C5F /* ICEStatusURLRessources.swift */,
+			);
+			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		943FF8281C2D63AF009E7C5F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				943FF82E1C2D63AF009E7C5F /* ICEInformationiOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		9431F9B81C19935000860884 /* ICEInformation */ = {
@@ -135,51 +198,54 @@
 				9431F9B51C19935000860884 /* Sources */,
 				9431F9B61C19935000860884 /* Frameworks */,
 				9431F9B71C19935000860884 /* Resources */,
+				943FF8471C2D63AF009E7C5F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				943FF83F1C2D63AF009E7C5F /* PBXTargetDependency */,
 			);
 			name = ICEInformation;
 			productName = ICEInformation;
 			productReference = 9431F9B91C19935000860884 /* ICEInformation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9431F9CC1C19935000860884 /* ICEInformationTests */ = {
+		943FF82A1C2D63AF009E7C5F /* ICEInformationiOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9431F9E41C19935000860884 /* Build configuration list for PBXNativeTarget "ICEInformationTests" */;
+			buildConfigurationList = 943FF8461C2D63AF009E7C5F /* Build configuration list for PBXNativeTarget "ICEInformationiOS" */;
 			buildPhases = (
-				9431F9C91C19935000860884 /* Sources */,
-				9431F9CA1C19935000860884 /* Frameworks */,
-				9431F9CB1C19935000860884 /* Resources */,
+				943FF8261C2D63AF009E7C5F /* Sources */,
+				943FF8271C2D63AF009E7C5F /* Frameworks */,
+				943FF8281C2D63AF009E7C5F /* Headers */,
+				943FF8291C2D63AF009E7C5F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9431F9CF1C19935000860884 /* PBXTargetDependency */,
 			);
-			name = ICEInformationTests;
-			productName = ICEInformationTests;
-			productReference = 9431F9CD1C19935000860884 /* ICEInformationTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = ICEInformationiOS;
+			productName = ICEInformationiOS;
+			productReference = 943FF82B1C2D63AF009E7C5F /* ICEInformationiOS.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		9431F9D71C19935000860884 /* ICEInformationUITests */ = {
+		943FF8331C2D63AF009E7C5F /* ICEInformationiOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9431F9E71C19935000860884 /* Build configuration list for PBXNativeTarget "ICEInformationUITests" */;
+			buildConfigurationList = 943FF8481C2D63AF009E7C5F /* Build configuration list for PBXNativeTarget "ICEInformationiOSTests" */;
 			buildPhases = (
-				9431F9D41C19935000860884 /* Sources */,
-				9431F9D51C19935000860884 /* Frameworks */,
-				9431F9D61C19935000860884 /* Resources */,
+				943FF8301C2D63AF009E7C5F /* Sources */,
+				943FF8311C2D63AF009E7C5F /* Frameworks */,
+				943FF8321C2D63AF009E7C5F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9431F9DA1C19935000860884 /* PBXTargetDependency */,
+				943FF8371C2D63AF009E7C5F /* PBXTargetDependency */,
+				943FF8391C2D63AF009E7C5F /* PBXTargetDependency */,
 			);
-			name = ICEInformationUITests;
-			productName = ICEInformationUITests;
-			productReference = 9431F9D81C19935000860884 /* ICEInformationUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = ICEInformationiOSTests;
+			productName = ICEInformationiOSTests;
+			productReference = 943FF8341C2D63AF009E7C5F /* ICEInformationiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -187,19 +253,18 @@
 		9431F9B11C19935000860884 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Lukas Schmidt";
 				TargetAttributes = {
 					9431F9B81C19935000860884 = {
 						CreatedOnToolsVersion = 7.1;
 					};
-					9431F9CC1C19935000860884 = {
-						CreatedOnToolsVersion = 7.1;
-						TestTargetID = 9431F9B81C19935000860884;
+					943FF82A1C2D63AF009E7C5F = {
+						CreatedOnToolsVersion = 7.2;
 					};
-					9431F9D71C19935000860884 = {
-						CreatedOnToolsVersion = 7.1;
+					943FF8331C2D63AF009E7C5F = {
+						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 9431F9B81C19935000860884;
 					};
 				};
@@ -218,8 +283,8 @@
 			projectRoot = "";
 			targets = (
 				9431F9B81C19935000860884 /* ICEInformation */,
-				9431F9CC1C19935000860884 /* ICEInformationTests */,
-				9431F9D71C19935000860884 /* ICEInformationUITests */,
+				943FF82A1C2D63AF009E7C5F /* ICEInformationiOS */,
+				943FF8331C2D63AF009E7C5F /* ICEInformationiOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,14 +300,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9431F9CB1C19935000860884 /* Resources */ = {
+		943FF8291C2D63AF009E7C5F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9431F9D61C19935000860884 /* Resources */ = {
+		943FF8321C2D63AF009E7C5F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -261,34 +326,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9431F9C91C19935000860884 /* Sources */ = {
+		943FF8261C2D63AF009E7C5F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9431F9D21C19935000860884 /* ICEInformationTests.swift in Sources */,
+				943FF84A1C2D63E9009E7C5F /* ICEStatusParser.swift in Sources */,
+				943FF8541C2EA205009E7C5F /* ICEStatusURLRessources.swift in Sources */,
+				943FF84C1C2D66EA009E7C5F /* ICEStatus.swift in Sources */,
+				943FF84E1C2D675C009E7C5F /* ICETripInformation.swift in Sources */,
+				943FF8521C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9431F9D41C19935000860884 /* Sources */ = {
+		943FF8301C2D63AF009E7C5F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9431F9DD1C19935000860884 /* ICEInformationUITests.swift in Sources */,
+				943FF83C1C2D63AF009E7C5F /* ICEInformationiOSTests.swift in Sources */,
+				943FF8501C2E9F7C009E7C5F /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9431F9CF1C19935000860884 /* PBXTargetDependency */ = {
+		943FF8371C2D63AF009E7C5F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9431F9B81C19935000860884 /* ICEInformation */;
-			targetProxy = 9431F9CE1C19935000860884 /* PBXContainerItemProxy */;
+			target = 943FF82A1C2D63AF009E7C5F /* ICEInformationiOS */;
+			targetProxy = 943FF8361C2D63AF009E7C5F /* PBXContainerItemProxy */;
 		};
-		9431F9DA1C19935000860884 /* PBXTargetDependency */ = {
+		943FF8391C2D63AF009E7C5F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9431F9B81C19935000860884 /* ICEInformation */;
-			targetProxy = 9431F9D91C19935000860884 /* PBXContainerItemProxy */;
+			targetProxy = 943FF8381C2D63AF009E7C5F /* PBXContainerItemProxy */;
+		};
+		943FF83F1C2D63AF009E7C5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 943FF82A1C2D63AF009E7C5F /* ICEInformationiOS */;
+			targetProxy = 943FF83E1C2D63AF009E7C5F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -399,6 +474,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ICEInformation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformation;
@@ -410,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ICEInformation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformation;
@@ -417,51 +494,67 @@
 			};
 			name = Release;
 		};
-		9431F9E51C19935000860884 /* Debug */ = {
+		943FF8421C2D63AF009E7C5F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ICEInformationTests/Info.plist;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ICEInformationiOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformationiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ICEInformation.app/ICEInformation";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		9431F9E61C19935000860884 /* Release */ = {
+		943FF8431C2D63AF009E7C5F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ICEInformationTests/Info.plist;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ICEInformationiOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformationTests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformationiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ICEInformation.app/ICEInformation";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		9431F9E81C19935000860884 /* Debug */ = {
+		943FF8441C2D63AF009E7C5F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = ICEInformationUITests/Info.plist;
+				INFOPLIST_FILE = ICEInformationiOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformationUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformationiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ICEInformation;
-				USES_XCTRUNNER = YES;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ICEInformation.app/ICEInformation";
 			};
 			name = Debug;
 		};
-		9431F9E91C19935000860884 /* Release */ = {
+		943FF8451C2D63AF009E7C5F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = ICEInformationUITests/Info.plist;
+				INFOPLIST_FILE = ICEInformationiOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformationUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformationiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ICEInformation;
-				USES_XCTRUNNER = YES;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ICEInformation.app/ICEInformation";
 			};
 			name = Release;
 		};
@@ -484,20 +577,21 @@
 				9431F9E31C19935000860884 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		9431F9E41C19935000860884 /* Build configuration list for PBXNativeTarget "ICEInformationTests" */ = {
+		943FF8461C2D63AF009E7C5F /* Build configuration list for PBXNativeTarget "ICEInformationiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9431F9E51C19935000860884 /* Debug */,
-				9431F9E61C19935000860884 /* Release */,
+				943FF8421C2D63AF009E7C5F /* Debug */,
+				943FF8431C2D63AF009E7C5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		9431F9E71C19935000860884 /* Build configuration list for PBXNativeTarget "ICEInformationUITests" */ = {
+		943FF8481C2D63AF009E7C5F /* Build configuration list for PBXNativeTarget "ICEInformationiOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9431F9E81C19935000860884 /* Debug */,
-				9431F9E91C19935000860884 /* Release */,
+				943FF8441C2D63AF009E7C5F /* Debug */,
+				943FF8451C2D63AF009E7C5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
