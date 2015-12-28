@@ -27,10 +27,8 @@ public class ICEStatusParser {
     
     public func parseDataToICEStatus(data: NSData) throws -> ICEStatus {
         if let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? Dictionary<String, AnyObject> {
-            let latitude = jsonData["latitude"] as! Double
-            let longitude = jsonData["longitude"] as! Double
             let speed = jsonData["speed"] as! Float
-            let location = Location(latitude: latitude, longitude: longitude)
+            let location = parseDictToLocation(jsonData)
             
             return ICEStatus(location: location, speed: speed)
         }
@@ -41,19 +39,30 @@ public class ICEStatusParser {
     
     private func parseDictToStation(data: [String: AnyObject]) -> Station {
         let stationData = data["station"] as! [String: AnyObject]
+        let locationData = stationData["geocoordinates"] as! [String: AnyObject]
+        let location = parseDictToLocation(locationData)
         let evaNr = stationData["evaNr"] as! String
         let name = stationData["name"] as! String
-        
-        return Station(evaNr: evaNr, name: name)
+        let schedule = parseSchuldeFromData(data["timetable"] as! [String: AnyObject])
+        return Station(evaNr: evaNr, name: name, schduledTimes: schedule, location: location)
     }
     
-//    func parseSchuldeFromData(data: [String: AnyObject]) -> StationSchedule {
-//        let track = data["track"] as! String
-//        let schedule = data["timetable"] as! [String: AnyObject]
-//        let arrivalTime = schedule["scheduledArrivalTime"] as! Int
-//        
-//        
-//    }
+    private func parseDictToLocation(data: [String: AnyObject]) -> Location {
+        let latitude = data["latitude"] as! Double
+        let longitude = data["longitude"] as! Double
+        
+        return Location(latitude: latitude, longitude: longitude)
+    }
+    
+    func parseSchuldeFromData(data: [String: AnyObject]) -> StationSchedule {
+        let scheduledArrivalTime = data["scheduledArrivalTime"] as? Double
+        let scheduledDepartureTime = data["scheduledDepartureTime"] as? Double
+        
+        let scheduledArrivalDate = NSDate(timeIntervalSince1970: (scheduledArrivalTime ?? scheduledDepartureTime!) * 0.001)
+        let scheduledDepartureDate = NSDate(timeIntervalSince1970: (scheduledDepartureTime ?? scheduledArrivalTime!) * 0.001)
+        
+        return StationSchedule(arrivalTime: scheduledArrivalDate, departureTime: scheduledDepartureDate)
+    }
     
     
     

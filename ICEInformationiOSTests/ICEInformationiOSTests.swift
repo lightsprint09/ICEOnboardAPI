@@ -24,7 +24,12 @@ class ICEInformationiOSTests: XCTestCase {
         let data = tripInforationDataString.dataUsingEncoding(NSUTF8StringEncoding)!
         let tripInfo = try! statusLoader.parseDataToICETrip(data)
         XCTAssertEqual(tripInfo.stops.count, 10)
-        print(tripInfo)
+        if let firstStop = tripInfo.stops.first {
+            XCTAssertEqual(firstStop.name, "Basel SBB")
+            XCTAssertEqual(firstStop.evaNr, "8500010_00")
+            XCTAssertEqual(firstStop.location.longitude, 7.589169)
+            XCTAssertEqual(firstStop.location.latitude, 47.547077)
+        }
     }
     
 }
