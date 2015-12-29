@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		94157D4B1C2EB5B100557392 /* Location+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94157D4A1C2EB5B100557392 /* Location+CLLocation.swift */; };
 		94157D4D1C2EB60900557392 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94157D4C1C2EB60800557392 /* Station.swift */; };
+		94157D4F1C319E8100557392 /* WifiStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94157D4E1C319E8100557392 /* WifiStatusChecker.swift */; };
+		94157D511C31A39800557392 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94157D501C31A39800557392 /* ErrorType.swift */; };
 		9431F9BD1C19935000860884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431F9BC1C19935000860884 /* AppDelegate.swift */; };
 		9431F9BF1C19935000860884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431F9BE1C19935000860884 /* ViewController.swift */; };
 		9431F9C21C19935000860884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9431F9C01C19935000860884 /* Main.storyboard */; };
@@ -68,6 +70,8 @@
 /* Begin PBXFileReference section */
 		94157D4A1C2EB5B100557392 /* Location+CLLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CLLocation.swift"; sourceTree = "<group>"; };
 		94157D4C1C2EB60800557392 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		94157D4E1C319E8100557392 /* WifiStatusChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WifiStatusChecker.swift; sourceTree = "<group>"; };
+		94157D501C31A39800557392 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		9431F9B91C19935000860884 /* ICEInformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICEInformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9431F9BC1C19935000860884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9431F9BE1C19935000860884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				943FF8491C2D63D9009E7C5F /* Source */,
 				943FF82D1C2D63AF009E7C5F /* ICEInformationiOS.h */,
 				943FF82F1C2D63AF009E7C5F /* Info.plist */,
+				94157D501C31A39800557392 /* ErrorType.swift */,
 			);
 			path = ICEInformationiOS;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				943FF84D1C2D675C009E7C5F /* ICETripInformation.swift */,
 				943FF8531C2EA205009E7C5F /* ICEStatusURLRessources.swift */,
 				94157D4C1C2EB60800557392 /* Station.swift */,
+				94157D4E1C319E8100557392 /* WifiStatusChecker.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -345,7 +351,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				943FF84A1C2D63E9009E7C5F /* ICEStatusParser.swift in Sources */,
+				94157D511C31A39800557392 /* ErrorType.swift in Sources */,
 				943FF8541C2EA205009E7C5F /* ICEStatusURLRessources.swift in Sources */,
+				94157D4F1C319E8100557392 /* WifiStatusChecker.swift in Sources */,
 				94157D4B1C2EB5B100557392 /* Location+CLLocation.swift in Sources */,
 				943FF84C1C2D66EA009E7C5F /* ICEStatus.swift in Sources */,
 				943FF84E1C2D675C009E7C5F /* ICETripInformation.swift in Sources */,

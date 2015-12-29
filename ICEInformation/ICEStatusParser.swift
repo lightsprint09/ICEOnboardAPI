@@ -20,7 +20,7 @@ public class ICEStatusParser {
             
             return tripInfo
         }
-        throw NSError(domain: "Failed to parse ICE Trip Info", code: 0, userInfo: nil)
+        throw ICEErrorType.Parse
     }
     
 
@@ -32,7 +32,7 @@ public class ICEStatusParser {
             
             return ICEStatus(location: location, speed: speed)
         }
-        throw NSError(domain: "Failed to parse ICE Status ", code: 0, userInfo: nil)
+        throw ICEErrorType.Parse
     }
     
     //MARK: private
@@ -44,6 +44,7 @@ public class ICEStatusParser {
         let evaNr = stationData["evaNr"] as! String
         let name = stationData["name"] as! String
         let schedule = parseSchuldeFromData(data["timetable"] as! [String: AnyObject])
+        
         return Station(evaNr: evaNr, name: name, schduledTimes: schedule, location: location)
     }
     

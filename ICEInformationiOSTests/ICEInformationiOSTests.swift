@@ -29,6 +29,7 @@ class ICEInformationiOSTests: XCTestCase {
             XCTAssertEqual(firstStop.evaNr, "8500010_00")
             XCTAssertEqual(firstStop.location.longitude, 7.589169)
             XCTAssertEqual(firstStop.location.latitude, 47.547077)
+            XCTAssertEqual(firstStop.schduledTimes.departureTime, NSDate(timeIntervalSince1970: 1449747000000 * 0.001))
         }
     }
     

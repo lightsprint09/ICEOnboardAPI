@@ -7,16 +7,17 @@
 //
 
 import Foundation
-
 public extension ICEStatusParser {
-    public func loadICEStatus(onSucces: (ICEStatus)->(), onError:(NSError)->()) {
+    
+    public func loadICEStatus(onSucces: (ICEStatus)->(), onError:(ICEErrorType)->()) {
+        guard WifiCheck.isICEWifi() else {
+            return onError(.WrongWifi)
+        }
         let urlSession = NSURLSession.sharedSession()
         let request = NSURLRequest(URL: statusAPIURL)
         let task = urlSession.dataTaskWithRequest(request) {data, response, error in
             guard let data = data else {
-                let finalError = error ?? NSError(domain: "", code: 0, userInfo: nil)
-                onError(finalError)
-                return
+               return onError(.Network)
             }
             do {
                 let iceStatus = try self.parseDataToICEStatus(data)
@@ -24,11 +25,8 @@ public extension ICEStatusParser {
                     onSucces(iceStatus)
                 })
             } catch {
-                onError(NSError(domain: "Error parsing", code: 0, userInfo: nil))
+                onError(.Parse)
             }
-            
-            
-            
         }
         
         task.resume()
