@@ -1,4 +1,5 @@
 # Unoffical InTrain ICE API
+<img src="https://raw.githubusercontent.com/lightsprint09/InTrain-ICE-API/master/Screenshot.png" width="280">
 
 This is the reverse engineered API for the ICE-Portal running in most of the ICE trains in Germany. This is only a Demo. Do not use it in production. This API is not offical!
 
