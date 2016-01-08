@@ -20,6 +20,6 @@ public struct Station {
     public let evaNr: String
     public let name: String
     //let passed: Bool
-    let schduledTimes: StationSchedule
+    public let schduledTimes: StationSchedule
     public let location: Location
 }
