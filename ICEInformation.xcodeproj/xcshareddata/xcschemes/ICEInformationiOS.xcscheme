@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "943FF8331C2D63AF009E7C5F"
+               BuildableName = "ICEInformationiOSTests.xctest"
+               BlueprintName = "ICEInformationiOSTests"
+               ReferencedContainer = "container:ICEInformation.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "943FF82A1C2D63AF009E7C5F"
+            BuildableName = "ICEInformationiOS.framework"
+            BlueprintName = "ICEInformationiOS"
+            ReferencedContainer = "container:ICEInformation.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

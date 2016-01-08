@@ -11,6 +11,7 @@ import MapKit
 import ICEInformationiOS
 
 class ViewController: UIViewController {
+    var trip: ICETrip?
     @IBOutlet weak var speedLabel: UILabel!
     let iceStatusLoader = ICEStatusParser()
     @IBOutlet weak var mapView: MKMapView!
@@ -42,7 +43,17 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return 0
+//    }
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath)
+//        cell.textLabel?.text = trip?.stops[indexPath.row].name
+//        cell.detailTextLabel?.text = trip?.stops[indexPath.row].
+//        return cell
+//    }
 
 }
 

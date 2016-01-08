@@ -11,12 +11,13 @@ import Foundation
 public class ICEStatusParser {
     public init() {}
     
-    public func parseDataToICETrip(data: NSData) throws -> ICETripInformation {
+    public func parseDataToICETrip(data: NSData) throws -> ICETrip {
         if let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? Dictionary<String, AnyObject> {
-            let train = jsonData["trainType"] as! String
+            let trainType = jsonData["trainType"] as! String
+            let trainNumber = jsonData["vzn"] as! String
             let trainstopData = jsonData["stops"] as! Array<[String: AnyObject]>
             let stops = trainstopData.map(parseDictToStation)
-            let tripInfo = ICETripInformation(trainNumber: train, stops: stops)
+            let tripInfo = ICETrip(trainNumber: trainNumber, stops: stops, trainType: trainType)
             
             return tripInfo
         }
@@ -44,8 +45,18 @@ public class ICEStatusParser {
         let evaNr = stationData["evaNr"] as! String
         let name = stationData["name"] as! String
         let schedule = parseSchuldeFromData(data["timetable"] as! [String: AnyObject])
+        let passendStation = parseDidPassStationFromDictionary(data["info"] as! [String: AnyObject])
+        let scheduledTrack = parseScheduledTrackFromDictionary(data["track"] as! [String: AnyObject])
         
-        return Station(evaNr: evaNr, name: name, schduledTimes: schedule, location: location)
+        return Station(evaNr: evaNr, name: name, passed: passendStation ,schduledTimes: schedule, location: location, track: scheduledTrack)
+    }
+    
+    private func parseDidPassStationFromDictionary(dictionary: [String: AnyObject]) -> Bool {
+        return dictionary["passed"] as! Bool
+    }
+    
+    private func parseScheduledTrackFromDictionary(dictionary: [String: AnyObject]) -> String {
+        return dictionary["scheduled"] as! String
     }
     
     private func parseDictToLocation(data: [String: AnyObject]) -> Location {
@@ -62,7 +73,15 @@ public class ICEStatusParser {
         let scheduledArrivalDate = NSDate(timeIntervalSince1970: (scheduledArrivalTime ?? scheduledDepartureTime!) * 0.001)
         let scheduledDepartureDate = NSDate(timeIntervalSince1970: (scheduledDepartureTime ?? scheduledArrivalTime!) * 0.001)
         
-        return StationSchedule(arrivalTime: scheduledArrivalDate, departureTime: scheduledDepartureDate)
+        let arrivalDelay = extractDelay(data["arrivalDelay"] as? String)
+        let departureDelay = extractDelay(data["departureDelay"] as? String)
+        
+        return StationSchedule(arrivalTime: scheduledArrivalDate, departureTime: scheduledDepartureDate, arrivalDelay: arrivalDelay, depatureDelay: departureDelay)
+    }
+    
+    func extractDelay(delay:String?) -> NSTimeInterval? {
+        guard let delay = delay else { return nil }
+        return Double(delay.stringByReplacingOccurrencesOfString("+", withString: ""))
     }
     
     
