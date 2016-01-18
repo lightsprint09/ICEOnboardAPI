@@ -35,7 +35,7 @@ class ICEInformationiOSTests: XCTestCase {
             XCTAssertEqual(firstStop.schduledTimes.departureTime, NSDate(timeIntervalSince1970: 1449742380000 * 0.001))
         }
         let freiburg = tripInfo.stops[2]
-        XCTAssertEqual(freiburg.schduledTimes.depatureDelay, 1)
+        XCTAssertEqual(freiburg.schduledTimes.depatureDelay, 60)
         XCTAssertTrue(freiburg.passed)
         XCTAssertEqual(freiburg.track, "1")
     }

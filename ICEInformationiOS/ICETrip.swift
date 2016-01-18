@@ -25,6 +25,24 @@ public struct ICETrip {
         return trainType + trainNumber
     }
     
+    public var passedStops: [Station] {
+        var passedStops = [Station]()
+        for (_, stop) in stops.enumerate() where stop.passed {
+            passedStops.append(stop)
+        }
+        
+        return passedStops
+    }
+    
+    public var commingStops: [Station] {
+        var commingStops = [Station]()
+        for (_, stop) in stops.enumerate() where !stop.passed {
+           commingStops.append(stop)
+        }
+        
+        return commingStops
+    }
+    
     public init(trainNumber: String, stops: Array<Station>, trainType: String) {
         if stops.count < 2 {
             fatalError("A trip must have at least 2 stops")

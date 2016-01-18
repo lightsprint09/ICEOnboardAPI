@@ -29,7 +29,8 @@ public class WifiCheck {
     }
     
     static func isICEWifi() -> Bool {
-        return iceWLANSSId == fetchSSIDInfo()
+        let currentSSID = fetchSSIDInfo()
+        return iceWLANSSId == currentSSID
     }
     
 }

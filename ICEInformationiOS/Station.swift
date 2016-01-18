@@ -11,8 +11,8 @@ public struct StationSchedule{
     public let arrivalTime: NSDate
     public let departureTime: NSDate
     
-    let arrivalDelay: NSTimeInterval?
-    let depatureDelay: NSTimeInterval?
+    public let arrivalDelay: NSTimeInterval?
+    public let depatureDelay: NSTimeInterval?
 }
 
 public struct Station {

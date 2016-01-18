@@ -80,8 +80,9 @@ public class ICEStatusParser {
     }
     
     func extractDelay(delay:String?) -> NSTimeInterval? {
-        guard let delay = delay else { return nil }
-        return Double(delay.stringByReplacingOccurrencesOfString("+", withString: ""))
+        guard let delay = delay,
+            let delayTime = Double(delay.stringByReplacingOccurrencesOfString("+", withString: "")) else { return nil }
+        return delayTime * 60
     }
     
     

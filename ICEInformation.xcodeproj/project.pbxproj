@@ -28,6 +28,11 @@
 		943FF8501C2E9F7C009E7C5F /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF84F1C2E9F7C009E7C5F /* TestData.swift */; };
 		943FF8521C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF8511C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift */; };
 		943FF8541C2EA205009E7C5F /* ICEStatusURLRessources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF8531C2EA205009E7C5F /* ICEStatusURLRessources.swift */; };
+		945BFA0E1C48EE0600D0A7D9 /* TrainStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945BFA0D1C48EE0600D0A7D9 /* TrainStationCell.swift */; };
+		945BFA101C48F0B300D0A7D9 /* Station+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945BFA0F1C48F0B300D0A7D9 /* Station+MKAnnotation.swift */; };
+		945BFA121C48F13700D0A7D9 /* Trip+MKAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945BFA111C48F13700D0A7D9 /* Trip+MKAnnotations.swift */; };
+		945BFA141C48FAF000D0A7D9 /* StationOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945BFA131C48FAF000D0A7D9 /* StationOverviewViewController.swift */; };
+		945BFA161C490C2200D0A7D9 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945BFA151C490C2200D0A7D9 /* StationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +98,11 @@
 		943FF84F1C2E9F7C009E7C5F /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		943FF8511C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ICEStatusParser+Loader.swift"; sourceTree = "<group>"; };
 		943FF8531C2EA205009E7C5F /* ICEStatusURLRessources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICEStatusURLRessources.swift; sourceTree = "<group>"; };
+		945BFA0D1C48EE0600D0A7D9 /* TrainStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainStationCell.swift; sourceTree = "<group>"; };
+		945BFA0F1C48F0B300D0A7D9 /* Station+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Station+MKAnnotation.swift"; sourceTree = "<group>"; };
+		945BFA111C48F13700D0A7D9 /* Trip+MKAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+MKAnnotations.swift"; sourceTree = "<group>"; };
+		945BFA131C48FAF000D0A7D9 /* StationOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationOverviewViewController.swift; sourceTree = "<group>"; };
+		945BFA151C490C2200D0A7D9 /* StationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +137,8 @@
 			children = (
 				943FF8511C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift */,
 				94157D4A1C2EB5B100557392 /* Location+CLLocation.swift */,
+				945BFA0F1C48F0B300D0A7D9 /* Station+MKAnnotation.swift */,
+				945BFA111C48F13700D0A7D9 /* Trip+MKAnnotations.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -157,6 +169,9 @@
 				9431F9BC1C19935000860884 /* AppDelegate.swift */,
 				9431F9BE1C19935000860884 /* ViewController.swift */,
 				9431F9C01C19935000860884 /* Main.storyboard */,
+				945BFA151C490C2200D0A7D9 /* StationViewController.swift */,
+				945BFA0D1C48EE0600D0A7D9 /* TrainStationCell.swift */,
+				945BFA131C48FAF000D0A7D9 /* StationOverviewViewController.swift */,
 				9431F9C31C19935000860884 /* Assets.xcassets */,
 				9431F9C51C19935000860884 /* LaunchScreen.storyboard */,
 				9431F9C81C19935000860884 /* Info.plist */,
@@ -345,7 +360,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9431F9BF1C19935000860884 /* ViewController.swift in Sources */,
+				945BFA0E1C48EE0600D0A7D9 /* TrainStationCell.swift in Sources */,
+				945BFA141C48FAF000D0A7D9 /* StationOverviewViewController.swift in Sources */,
 				9431F9BD1C19935000860884 /* AppDelegate.swift in Sources */,
+				945BFA161C490C2200D0A7D9 /* StationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				945BFA101C48F0B300D0A7D9 /* Station+MKAnnotation.swift in Sources */,
 				943FF84A1C2D63E9009E7C5F /* ICEStatusParser.swift in Sources */,
 				94157D511C31A39800557392 /* ErrorType.swift in Sources */,
 				9424A9441C401BBE008BF4A0 /* Location.swift in Sources */,
@@ -363,6 +382,7 @@
 				943FF84E1C2D675C009E7C5F /* ICETrip.swift in Sources */,
 				943FF8521C2EA1E4009E7C5F /* ICEStatusParser+Loader.swift in Sources */,
 				94157D4D1C2EB60900557392 /* Station.swift in Sources */,
+				945BFA121C48F13700D0A7D9 /* Trip+MKAnnotations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
