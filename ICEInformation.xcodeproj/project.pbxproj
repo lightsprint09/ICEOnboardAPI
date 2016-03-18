@@ -12,6 +12,7 @@
 		94157D4F1C319E8100557392 /* WifiStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94157D4E1C319E8100557392 /* WifiStatusChecker.swift */; };
 		94157D511C31A39800557392 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94157D501C31A39800557392 /* ErrorType.swift */; };
 		9424A9441C401BBE008BF4A0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424A9431C401BBE008BF4A0 /* Location.swift */; };
+		942BF0741C9C660C002220DA /* JSONParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942BF0731C9C660C002220DA /* JSONParser.framework */; };
 		9431F9BD1C19935000860884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431F9BC1C19935000860884 /* AppDelegate.swift */; };
 		9431F9BF1C19935000860884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431F9BE1C19935000860884 /* ViewController.swift */; };
 		9431F9C21C19935000860884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9431F9C01C19935000860884 /* Main.storyboard */; };
@@ -79,6 +80,7 @@
 		94157D4E1C319E8100557392 /* WifiStatusChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WifiStatusChecker.swift; sourceTree = "<group>"; };
 		94157D501C31A39800557392 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		9424A9431C401BBE008BF4A0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		942BF0731C9C660C002220DA /* JSONParser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONParser.framework; path = Carthage/Build/iOS/JSONParser.framework; sourceTree = "<group>"; };
 		9431F9B91C19935000860884 /* ICEInformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICEInformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9431F9BC1C19935000860884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9431F9BE1C19935000860884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				942BF0741C9C660C002220DA /* JSONParser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +149,7 @@
 		9431F9B01C19935000860884 = {
 			isa = PBXGroup;
 			children = (
+				942BF0731C9C660C002220DA /* JSONParser.framework */,
 				9431F9BB1C19935000860884 /* ICEInformation */,
 				943FF82C1C2D63AF009E7C5F /* ICEInformationiOS */,
 				943FF83A1C2D63AF009E7C5F /* ICEInformationiOSTests */,
@@ -256,6 +260,7 @@
 				943FF8271C2D63AF009E7C5F /* Frameworks */,
 				943FF8281C2D63AF009E7C5F /* Headers */,
 				943FF8291C2D63AF009E7C5F /* Resources */,
+				942BF0751C9C6611002220DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -353,6 +358,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		942BF0751C9C6611002220DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/JSONParser.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9431F9B51C19935000860884 /* Sources */ = {
@@ -552,6 +574,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ICEInformationiOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -572,6 +598,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ICEInformationiOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
