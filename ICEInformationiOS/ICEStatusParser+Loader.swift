@@ -14,9 +14,9 @@ public extension ICEStatusParser {
     }
     
     public func loadICEStatus(onSucces: (ICEStatus)->(), onError:(ICEErrorType)->()) {
-        guard WifiCheck.isICEWifi() else {
-            return onError(.WrongWifi)
-        }
+//        guard WifiCheck.isICEWifi() else {
+//            return onError(.WrongWifi)
+//        }
         let urlSession = NSURLSession.sharedSession()
         let request = NSURLRequest(URL: statusAPIURL)
         let task = urlSession.dataTaskWithRequest(request) {data, response, error in
@@ -37,9 +37,9 @@ public extension ICEStatusParser {
     }
     
     public func loadICETrip(onSucces: (ICETrip)->(), onError:(ICEErrorType)->()) {
-        guard WifiCheck.isICEWifi() else {
-            return onError(.WrongWifi)
-        }
+//        guard WifiCheck.isICEWifi() else {
+//            return onError(.WrongWifi)
+//        }
         let urlSession = NSURLSession.sharedSession()
         let request = NSURLRequest(URL: tripInfoURL)
         let task = urlSession.dataTaskWithRequest(request) {data, response, error in
