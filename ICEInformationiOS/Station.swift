@@ -8,11 +8,11 @@
 
 import Foundation
 public struct StationSchedule{
-    public let arrivalTime: NSDate
-    public let departureTime: NSDate
+    public let arrivalTime: Date
+    public let departureTime: Date
     
-    public let arrivalDelay: NSTimeInterval?
-    public let depatureDelay: NSTimeInterval?
+    public let arrivalDelay: TimeInterval?
+    public let depatureDelay: TimeInterval?
 }
 
 public struct Station {
@@ -21,5 +21,5 @@ public struct Station {
     public let passed: Bool
     public let schduledTimes: StationSchedule
     public let location: Location
-    public let track: String
+    public let track: String?
 }

@@ -26,21 +26,11 @@ public struct ICETrip {
     }
     
     public var passedStops: [Station] {
-        var passedStops = [Station]()
-        for (_, stop) in stops.enumerate() where stop.passed {
-            passedStops.append(stop)
-        }
-        
-        return passedStops
+        return stops.filter { $0.passed }
     }
     
     public var commingStops: [Station] {
-        var commingStops = [Station]()
-        for (_, stop) in stops.enumerate() where !stop.passed {
-           commingStops.append(stop)
-        }
-        
-        return commingStops
+        return stops.filter { !$0.passed }
     }
     
     public init(trainNumber: String, stops: Array<Station>, trainType: String) {

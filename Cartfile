@@ -1,1 +1,2 @@
-github "lightsprint09/JSONParser" "master"
+github "matthewcheok/JSONCodable" == 3.0.1
+github "dbsystel/DBNetworkStack" == 0.3.1

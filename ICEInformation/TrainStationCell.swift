@@ -7,15 +7,15 @@
 //
 
 import UIKit
-import ICEInformationiOS
+import ICEInTrainAPI
 
 class TrainStationCell: UITableViewCell {
     @IBOutlet weak var stationNameLabel: UILabel!
     @IBOutlet weak var delayLabel: UILabel!
     @IBOutlet weak var arrivalTimeLabel: UILabel!
     
-    func configureWithStation(station: Station) {
-        let dateFormatter = NSDateFormatter()
+    func configureWithStation(_ station: Station) {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         stationNameLabel.text = station.name
         if let delay = station.schduledTimes.arrivalDelay {
@@ -25,7 +25,7 @@ class TrainStationCell: UITableViewCell {
             delayLabel.text = "+0"
             delayLabel.textColor = UIColor(red:93 / 255.0, green:179 / 255.0, blue:113 / 255.0, alpha:1.0)
         }
-        arrivalTimeLabel.text = dateFormatter.stringFromDate(station.schduledTimes.arrivalTime)
+        arrivalTimeLabel.text = dateFormatter.string(from: station.schduledTimes.arrivalTime)
     }
     
 }
