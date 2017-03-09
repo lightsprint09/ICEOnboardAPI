@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "943FF82A1C2D63AF009E7C5F"
-               BuildableName = "ICEInformationiOS.framework"
+               BuildableName = "ICEInTrainAPI.framework"
                BlueprintName = "ICEInformationiOS"
                ReferencedContainer = "container:ICEInformation.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "943FF82A1C2D63AF009E7C5F"
-            BuildableName = "ICEInformationiOS.framework"
+            BuildableName = "ICEInTrainAPI.framework"
             BlueprintName = "ICEInformationiOS"
             ReferencedContainer = "container:ICEInformation.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "943FF82A1C2D63AF009E7C5F"
-            BuildableName = "ICEInformationiOS.framework"
+            BuildableName = "ICEInTrainAPI.framework"
             BlueprintName = "ICEInformationiOS"
             ReferencedContainer = "container:ICEInformation.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "943FF82A1C2D63AF009E7C5F"
-            BuildableName = "ICEInformationiOS.framework"
+            BuildableName = "ICEInTrainAPI.framework"
             BlueprintName = "ICEInformationiOS"
             ReferencedContainer = "container:ICEInformation.xcodeproj">
          </BuildableReference>

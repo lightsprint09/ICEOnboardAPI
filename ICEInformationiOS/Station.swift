@@ -21,5 +21,5 @@ public struct Station {
     public let passed: Bool
     public let schduledTimes: StationSchedule
     public let location: Location
-    public let track: String
+    public let track: String?
 }

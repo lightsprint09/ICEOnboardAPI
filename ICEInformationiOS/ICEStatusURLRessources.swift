@@ -10,7 +10,7 @@ import Foundation
 import DBNetworkStack
 
 let baseURLKey = "INTrainBaseURLKey"
-let baseURL = URL(string: "http://ice.portal2/jetty/api/v1/")!
+let baseURL = URL(string: "https://portal.imice.de/api1/rs/")!
 public let urlKeys: [String: URL] = [baseURLKey: baseURL]
 let statusAPIURL = URL(string: "status", relativeTo: baseURL)!
 let tripInfoURL = URL(string: "tripInfo", relativeTo: baseURL)!
