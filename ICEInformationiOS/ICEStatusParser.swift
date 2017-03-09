@@ -7,72 +7,62 @@
 //
 
 import Foundation
-import JSONParser
+import JSONCodable
 
-extension ICEStatus: JSONParsable {
-    public init(JSON: Dictionary<String, AnyObject>) {
-        self.speed = JSON["speed"] as! Float
-        self.location = Location(JSON: JSON)
+extension ICEStatus: JSONDecodable {
+    public init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
+        self.speed = try decoder.decode("speed")
+        self.location = try Location(object: object)
     }
 }
 
-extension Location: JSONParsable {
-    public init(JSON: Dictionary<String, AnyObject>) {
-        self.latitude = JSON["latitude"] as! Double
-        self.longitude = JSON["longitude"] as! Double
+extension Location: JSONDecodable {
+    public init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
+        self.latitude = try decoder.decode("latitude")
+        self.longitude = try decoder.decode("longitude")
     }
 }
 
-extension ICETrip: JSONParsable {
-    public init(JSON: Dictionary<String, AnyObject>) {
-        self.trainType = JSON["trainType"] as! String
-        self.trainNumber = JSON["vzn"] as! String
-        self.stops = JSON.transformToList(keyPath: "stops") ?? []
+extension ICETrip: JSONDecodable {
+    public init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
+        self.trainType = try decoder.decode("trainType")
+        self.trainNumber = try decoder.decode("vzn")
+        self.stops = try decoder.decode("stops")
     }
 }
 
-extension Station: JSONParsable {
-    public init(JSON: Dictionary<String, AnyObject>) {
-        let stationData = JSON["station"] as! [String: AnyObject]
-        self.location = Location(JSON: stationData["geocoordinates"] as! [String: AnyObject])
-        self.evaNr = stationData["evaNr"] as! String
-        self.name = stationData["name"] as! String
-        self.schduledTimes = JSON.transformToObject(keyPath: "timetable")!
-        self.track = JSON.transformToObject(keyPath: "track.scheduled")!
-        self.passed = JSON.transformToObject(keyPath: "info.passed")!
+extension Station: JSONDecodable {
+    public init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
+        self.location = try decoder.decode("station.geocoordinates")
+        self.evaNr = try decoder.decode("station.evaNr")
+        self.name = try decoder.decode("station.name")
+        self.schduledTimes = try decoder.decode("timetable")
+        self.track = try decoder.decode("track.scheduled")
+        self.passed = try decoder.decode("info.passed")
     }
 }
 
-extension StationSchedule: JSONParsable {
-    public init(JSON: Dictionary<String, AnyObject>) {
-        let scheduledArrivalTime = JSON["scheduledArrivalTime"] as? Double
-        let scheduledDepartureTime = JSON["scheduledDepartureTime"] as? Double
+extension StationSchedule: JSONDecodable {
+    public init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
+        let scheduledArrivalTime: Double? = try decoder.decode("scheduledArrivalTime")
+        let scheduledDepartureTime: Double? = try decoder.decode("scheduledDepartureTime")
         
-        self.arrivalTime = NSDate(timeIntervalSince1970: (scheduledArrivalTime ?? scheduledDepartureTime!) * 0.001)
-        self.departureTime = NSDate(timeIntervalSince1970: (scheduledDepartureTime ?? scheduledArrivalTime!) * 0.001)
+        self.arrivalTime = Date(timeIntervalSince1970: (scheduledArrivalTime ?? scheduledDepartureTime!) * 0.001)
+        self.departureTime = Date(timeIntervalSince1970: (scheduledDepartureTime ?? scheduledArrivalTime!) * 0.001)
         
-        self.arrivalDelay = extractDelay(JSON["arrivalDelay"] as? String)
-        self.depatureDelay = extractDelay(JSON["departureDelay"] as? String)
+        self.arrivalDelay = extractDelay(try decoder.decode("arrivalDelay"))
+        self.depatureDelay = extractDelay(try  decoder.decode("departureDelay"))
     }
 }
 
 
-public class ICEStatusParser {
-    let jsonParser: JSONParsing = JSONParser()
-    public init() {
-    }
-    
-    public func parseDataToICETrip(data: NSData) throws -> ICETrip {
-        return try jsonParser.parseObject(data) as ICETrip
-    }
-    public func parseDataToICEStatus(data: NSData) throws -> ICEStatus {
-        return try jsonParser.parseObject(data) as ICEStatus
-    }
-    
-}
-
-func extractDelay(delay:String?) -> NSTimeInterval? {
+func extractDelay(_ delay:String?) -> TimeInterval? {
     guard let delay = delay,
-        let delayTime = Double(delay.stringByReplacingOccurrencesOfString("+", withString: "")) else { return nil }
+        let delayTime = Double(delay.replacingOccurrences(of: "+", with: "")) else { return nil }
     return delayTime * 60
 }

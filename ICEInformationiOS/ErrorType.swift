@@ -8,8 +8,8 @@
 
 import Foundation
 
-public enum ICEErrorType: ErrorType {
-    case WrongWifi
-    case Parse
-    case Network
+public enum ICEErrorType: Error {
+    case wrongWifi
+    case parse
+    case network
 }

@@ -7,22 +7,30 @@
 //
 
 import XCTest
-@testable import ICEInformationiOS
+@testable import ICEInTrainAPI
 
 class ICEInformationiOSTests: XCTestCase {
-    let statusLoader = ICEStatusParser()
     
     func testParseICEStatus() {
-        let data = statusDataString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let iceStatus = try! statusLoader.parseDataToICEStatus(data)
+        let data = statusDataString.data(using: String.Encoding.utf8)!
+        guard let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+            XCTFail()
+            return
+        }
+        
+        let iceStatus = try! ICEStatus(object: json)
         XCTAssertEqual(iceStatus.location.latitude, 49.404305)
         XCTAssertEqual(iceStatus.location.longitude, 8.547148)
         XCTAssertEqual(iceStatus.speed, 221.8000030517578)
     }
     
     func testParseICETripInformation() {
-        let data = tripInforationDataString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let tripInfo = try! statusLoader.parseDataToICETrip(data)
+        let data = tripInforationDataString.data(using: .utf8)!
+        guard let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+            XCTFail()
+            return
+        }
+        let tripInfo = try! ICETrip(object: json)
         XCTAssertEqual(tripInfo.trainNumber, "108")
         XCTAssertEqual(tripInfo.trainType, "ICE")
         XCTAssertEqual(tripInfo.stops.count, 10)
@@ -32,7 +40,7 @@ class ICEInformationiOSTests: XCTestCase {
             XCTAssertEqual(firstStop.evaNr, "8500010_00")
             XCTAssertEqual(firstStop.location.longitude, 7.589169)
             XCTAssertEqual(firstStop.location.latitude, 47.547077)
-            XCTAssertEqual(firstStop.schduledTimes.departureTime, NSDate(timeIntervalSince1970: 1449742380000 * 0.001))
+            XCTAssertEqual(firstStop.schduledTimes.departureTime, Date(timeIntervalSince1970: 1449742380000 * 0.001))
         }
         let freiburg = tripInfo.stops[2]
         XCTAssertEqual(freiburg.schduledTimes.depatureDelay, 60)
