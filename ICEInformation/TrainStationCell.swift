@@ -14,18 +14,23 @@ class TrainStationCell: UITableViewCell {
     @IBOutlet weak var delayLabel: UILabel!
     @IBOutlet weak var arrivalTimeLabel: UILabel!
     
-    func configureWithStation(_ station: Station) {
+    static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        stationNameLabel.text = station.name
-        if let delay = station.schduledTimes.arrivalDelay {
+        
+        return dateFormatter
+    }()
+    
+    func configureWithStation(_ stop: Stop) {
+        stationNameLabel.text = stop.station.name
+        if let delay = stop.schduledTimes.arrivalDelay {
             delayLabel.text = "+\(Int(delay / 60))"
             delayLabel.textColor = UIColor(red:178 / 255.0, green:42 / 255.0, blue:34 / 255.0, alpha:1.0)
         }else {
             delayLabel.text = "+0"
             delayLabel.textColor = UIColor(red:93 / 255.0, green:179 / 255.0, blue:113 / 255.0, alpha:1.0)
         }
-        arrivalTimeLabel.text = dateFormatter.string(from: station.schduledTimes.arrivalTime)
+        arrivalTimeLabel.text = TrainStationCell.dateFormatter.string(from: stop.schduledTimes.arrivalTime)
     }
     
 }

@@ -65,7 +65,7 @@ class StationOverviewViewController: UIViewController, UITableViewDataSource {
         return trip.commingStops.count
     }
     
-    func stopAtIndexPath(_ indexPath: NSIndexPath) -> Station? {
+    func stopAtIndexPath(_ indexPath: NSIndexPath) -> Stop? {
         if indexPath.section == 0 {
             return trip?.passedStops[indexPath.row]
         }
@@ -89,7 +89,7 @@ class StationOverviewViewController: UIViewController, UITableViewDataSource {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let stationViewController = segue.destination as? StationViewController, let indexPath = sender as? UITableViewCell {
-            stationViewController.station = stopAtIndexPath(tableView.indexPath(for: indexPath)! as NSIndexPath)!
+            stationViewController.stop = stopAtIndexPath(tableView.indexPath(for: indexPath)! as NSIndexPath)!
         }
     }
 }

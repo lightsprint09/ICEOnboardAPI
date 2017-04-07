@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 public struct StationSchedule{
     public let arrivalTime: Date
     public let departureTime: Date
@@ -16,10 +17,7 @@ public struct StationSchedule{
 }
 
 public struct Station {
-    public let evaNr: String
+    public let evaId: String
     public let name: String
-    public let passed: Bool
-    public let schduledTimes: StationSchedule
-    public let location: Location
-    public let track: String?
+    public let location: Location?
 }

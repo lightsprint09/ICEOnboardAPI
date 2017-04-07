@@ -9,9 +9,12 @@
 import MapKit
 
 extension Station {
-    public var mapAnnotation: MKPointAnnotation {
+    public var mapAnnotation: MKPointAnnotation? {
+        guard let locationCoordinate = location?.locationCoordinate else {
+            return nil
+        }
         let dropPin = MKPointAnnotation()
-        dropPin.coordinate = location.locationCoordinate
+        dropPin.coordinate = locationCoordinate
         dropPin.title = name
         
         return dropPin

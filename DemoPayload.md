@@ -312,3 +312,6 @@ http://ice.portal2/jetty/api/v1/status
   "longitude" : 8.547148
 }
 ```
+
+https://portal.imice.de/api1/rs/tripInfo/connection/8000244_00
+
