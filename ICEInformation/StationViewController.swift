@@ -10,6 +10,12 @@ import UIKit
 import ICEInTrainAPI
 import MapKit
 
+extension UIColor {
+    static let delayedRed = UIColor(red: 178 / 255, green: 42 / 255, blue: 34 / 255, alpha: 1)
+    
+    static let inTimeGreen = UIColor(red: 93 / 255, green: 179 / 255, blue: 113 / 255, alpha: 1)
+}
+
 class StationViewController: UIViewController {
     var stop: Stop!
     
@@ -35,18 +41,14 @@ class StationViewController: UIViewController {
         trackLabel.text = stop.track?.scheduledTrack
         arrivalLabel.text = dateFormatter.string(from: stop.schduledTimes.arrivalTime)
         depatureLabel.text = dateFormatter.string(from: stop.schduledTimes.departureTime)
-        setDelayTimeAtLabel(arrivalDelayLabel, delay: stop.schduledTimes.arrivalDelay)
-        setDelayTimeAtLabel(departureDelayLabel, delay: stop.schduledTimes.depatureDelay)
+        setDelayTimeAt(lable: arrivalDelayLabel, delay: stop.schduledTimes.arrivalDelay)
+        setDelayTimeAt(lable: departureDelayLabel, delay: stop.schduledTimes.depatureDelay)
     }
     
-    func setDelayTimeAtLabel(_ lable: UILabel, delay: TimeInterval?) {
-        if let delay = delay {
-            lable.text = "+\(Int(delay / 60))"
-            lable.textColor = UIColor(red:178 / 255.0, green:42 / 255.0, blue:34 / 255.0, alpha:1.0)
-        }else {
-            lable.text = "+0"
-            lable.textColor = UIColor(red:93 / 255.0, green:179 / 255.0, blue:113 / 255.0, alpha:1.0)
-        }
+    func setDelayTimeAt(lable : UILabel, delay: TimeInterval?) {
+        let delay = stop.schduledTimes.arrivalDelay ?? 0
+        lable.text = "+\(Int(delay / 60))"
+        lable.textColor = delay >= 5 ? .delayedRed : .inTimeGreen
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
