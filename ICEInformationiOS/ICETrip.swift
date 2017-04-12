@@ -22,7 +22,7 @@ public struct ICETrip {
     }
     
     public var trainName: String {
-        return trainType + trainNumber
+        return trainType + " " + trainNumber
     }
     
     public var passedStops: [Stop] {
