@@ -10,22 +10,30 @@ import UIKit
 import MapKit
 import ICEInTrainAPI
 import DBNetworkStack
+import Sourcing
 
-class StationOverviewViewController: UIViewController, UITableViewDataSource {
+class StationOverviewViewController: UIViewController {
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     var trip: ICETrip?
     
+    var dataProvider: ArrayDataProvider<Stop>!
+    var dataSource: TableViewDataSource<Stop>!
+    
     let networkService = NetworkService(networkAccess: URLSession(configuration: .default), endPoints: urlKeys)
     
     
     override func viewDidLoad() {
-        tableView.dataSource = self
-        
+        setupDataSource()
         fetchData()
         Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(StationOverviewViewController.fetchData), userInfo: nil, repeats: true)
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(StationOverviewViewController.fetchStatus), userInfo: nil, repeats: true)
+    }
+    
+    func setupDataSource() {
+        dataProvider = ArrayDataProvider(rows: [])
+        dataSource = TableViewDataSource(tableView: tableView, dataProvider: dataProvider, cell: CellConfiguration<TrainStationCell>())
     }
     
     func fetchStatus() {
@@ -50,46 +58,13 @@ class StationOverviewViewController: UIViewController, UITableViewDataSource {
         title = iceTrip.trainName
         mapView.addAnnotations(iceTrip.mapAnnotations)
         trip = iceTrip
-        tableView.reloadData()
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let trip = trip else { return 0 }
-        if section == 0 {
-            return trip.passedStops.count
-        }
-        return trip.commingStops.count
-    }
-    
-    func stopAtIndexPath(_ indexPath: NSIndexPath) -> Station? {
-        if indexPath.section == 0 {
-            return trip?.passedStops[indexPath.row]
-        }
-        return trip?.commingStops[indexPath.row]
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "trainstation-cell", for: indexPath)
-        guard let stationCell = cell as? TrainStationCell, let stop = stopAtIndexPath(indexPath as NSIndexPath) else { return cell }
-        stationCell.configureWithStation(stop)
-        
-        return stationCell
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Passed Stops"
-        }
-        return "Next Stops"
+        dataProvider.reconfigure(with: [iceTrip.passedStops, iceTrip.commingStops])
+        dataProvider.headerTitles = ["Vergangene Halte", "Kommende Halte"]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let stationViewController = segue.destination as? StationViewController, let indexPath = sender as? UITableViewCell {
-            stationViewController.station = stopAtIndexPath(tableView.indexPath(for: indexPath)! as NSIndexPath)!
+        if let stationViewController = segue.destination as? StationViewController {
+            stationViewController.stop = dataSource.selectedObject
         }
     }
 }

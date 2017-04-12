@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ICEOnboardWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>943FF8331C2D63AF009E7C5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C6A2A4D91E9792FD00B55A0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

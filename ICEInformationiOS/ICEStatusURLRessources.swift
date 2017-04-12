@@ -17,6 +17,7 @@ let tripInfoURL = URL(string: "tripInfo", relativeTo: baseURL)!
 
 extension ICEStatus: JSONMappable { }
 extension ICETrip: JSONMappable { }
+extension TrainConnections: JSONMappable { }
 
 public func ICEStatusResource() -> Resource<ICEStatus> {
     let request = NetworkRequest(path: "status", baseURLKey: "INTrainBaseURLKey")
@@ -26,6 +27,12 @@ public func ICEStatusResource() -> Resource<ICEStatus> {
 
 public func ICETripResource() -> Resource<ICETrip> {
     let request = NetworkRequest(path: "tripInfo", baseURLKey: "INTrainBaseURLKey")
+    
+    return JSONResource(request: request).wrapped()
+}
+
+public func ConnectingTrains(at station: Station) -> Resource<TrainConnections> {
+    let request = NetworkRequest(path: "tripInfo/connection/\(station.evaId)", baseURLKey: "INTrainBaseURLKey")
     
     return JSONResource(request: request).wrapped()
 }
