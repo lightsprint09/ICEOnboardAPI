@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cq5-YF-rSo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cq5-YF-rSo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +29,7 @@
         <!--Route-->
         <scene sceneID="0i3-2w-dBR">
             <objects>
-                <viewController id="Gc1-qc-HbY" customClass="StationOverviewViewController" customModule="ICEInformation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StationOverviewViewController" id="Gc1-qc-HbY" customClass="StationOverviewViewController" customModule="ICEInformation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A0J-re-Y3u"/>
                         <viewControllerLayoutGuide type="bottom" id="0aG-Cc-Czn"/>
@@ -90,17 +90,11 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wOS-p7-Jyw" id="Vgn-nQ-qJn">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Freiburg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mfq-m1-Fwe">
-                                                    <rect key="frame" x="8" y="11" width="64" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2l-xS-oEX">
-                                                    <rect key="frame" x="312" y="11.5" width="30" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="+15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2l-xS-oEX">
+                                                    <rect key="frame" x="317" y="11.5" width="30" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="RWk-WE-x97"/>
                                                     </constraints>
@@ -108,8 +102,14 @@
                                                     <color key="textColor" red="0.72732949256896973" green="0.10647293925285339" blue="0.11485551297664642" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49g-47-i4k">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49g-47-i4k">
                                                     <rect key="frame" x="262" y="11" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" ambiguous="YES" text="Freiburg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mfq-m1-Fwe">
+                                                    <rect key="frame" x="16" y="11" width="242" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -119,9 +119,10 @@
                                                 <constraint firstItem="49g-47-i4k" firstAttribute="centerY" secondItem="Vgn-nQ-qJn" secondAttribute="centerY" id="ECM-MU-1zp"/>
                                                 <constraint firstItem="F2l-xS-oEX" firstAttribute="leading" secondItem="49g-47-i4k" secondAttribute="trailing" constant="8" id="GGd-IF-RA0"/>
                                                 <constraint firstItem="Mfq-m1-Fwe" firstAttribute="centerY" secondItem="Vgn-nQ-qJn" secondAttribute="centerY" id="Hld-N4-agY"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="Mfq-m1-Fwe" secondAttribute="leading" id="gl7-cf-3hi"/>
+                                                <constraint firstItem="Mfq-m1-Fwe" firstAttribute="leading" secondItem="Vgn-nQ-qJn" secondAttribute="leadingMargin" constant="8" id="qcF-cE-NiK"/>
+                                                <constraint firstItem="49g-47-i4k" firstAttribute="leading" secondItem="Mfq-m1-Fwe" secondAttribute="trailing" constant="4" id="sO4-Wf-8iS"/>
                                                 <constraint firstItem="F2l-xS-oEX" firstAttribute="centerY" secondItem="Vgn-nQ-qJn" secondAttribute="centerY" id="tR8-jH-OMb"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="F2l-xS-oEX" secondAttribute="trailing" id="wxE-9E-FcX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="F2l-xS-oEX" secondAttribute="trailing" constant="-5" id="wxE-9E-FcX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -156,12 +157,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gid-5h-rKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="-591"/>
+            <point key="canvasLocation" x="116" y="-591.45427286356824"/>
         </scene>
         <!--Station View Controller-->
         <scene sceneID="YnE-gA-IdQ">
             <objects>
-                <viewController id="fN7-FX-1PF" customClass="StationViewController" customModule="ICEInformation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StationViewController" id="fN7-FX-1PF" customClass="StationViewController" customModule="ICEInformation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xda-Yk-x9d"/>
                         <viewControllerLayoutGuide type="bottom" id="F2b-2X-aHt"/>

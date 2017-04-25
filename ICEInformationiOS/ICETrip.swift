@@ -33,6 +33,10 @@ public struct ICETrip {
         return stops.filter { !$0.passed }
     }
     
+    public var nextStop: Stop? {
+        return commingStops.first
+    }
+    
     public init(trainNumber: String, stops: [Stop], trainType: String) {
         if stops.count < 2 {
             fatalError("A trip must have at least 2 stops")
@@ -41,5 +45,4 @@ public struct ICETrip {
         self.stops = stops
         self.trainType = trainType
     }
-    
 }

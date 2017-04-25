@@ -12,7 +12,6 @@
 		94157D511C31A39800557392 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94157D501C31A39800557392 /* ErrorType.swift */; };
 		9424A9441C401BBE008BF4A0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9424A9431C401BBE008BF4A0 /* Location.swift */; };
 		9431F9BD1C19935000860884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431F9BC1C19935000860884 /* AppDelegate.swift */; };
-		9431F9BF1C19935000860884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9431F9BE1C19935000860884 /* ViewController.swift */; };
 		9431F9C21C19935000860884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9431F9C01C19935000860884 /* Main.storyboard */; };
 		9431F9C41C19935000860884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9431F9C31C19935000860884 /* Assets.xcassets */; };
 		9431F9C71C19935000860884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9431F9C51C19935000860884 /* LaunchScreen.storyboard */; };
@@ -50,6 +49,13 @@
 		C6A2A4EB1E9793C600B55A0F /* DBNetworkStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */; };
 		C6A2A4EC1E9793C700B55A0F /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F751E714110001DFB5F /* JSONCodable.framework */; };
 		C6A2A4F11E97955700B55A0F /* FakeICENetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2A4F01E97955700B55A0F /* FakeICENetworkAccess.swift */; };
+		C6CF23661EADFFBD00580862 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CF23651EADFFBD00580862 /* UserNotifications.framework */; };
+		C6CF23681EADFFBD00580862 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CF23671EADFFBD00580862 /* UserNotificationsUI.framework */; };
+		C6CF236B1EADFFBD00580862 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CF236A1EADFFBD00580862 /* NotificationViewController.swift */; };
+		C6CF236E1EADFFBD00580862 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6CF236C1EADFFBD00580862 /* MainInterface.storyboard */; };
+		C6CF23721EADFFBD00580862 /* NextStopNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C6CF23641EADFFBD00580862 /* NextStopNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C6CF23761EAE02E200580862 /* DBNetworkStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */; };
+		C6CF23771EAE02E200580862 /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F751E714110001DFB5F /* JSONCodable.framework */; };
 		C6DC8F761E714110001DFB5F /* DBNetworkStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */; };
 		C6DC8F771E714110001DFB5F /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F751E714110001DFB5F /* JSONCodable.framework */; };
 		C6DC8F781E7153AF001DFB5F /* DBNetworkStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */; };
@@ -94,6 +100,20 @@
 			remoteGlobalIDString = 943FF82A1C2D63AF009E7C5F;
 			remoteInfo = ICEInformationiOS;
 		};
+		C6CF23701EADFFBD00580862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9431F9B11C19935000860884 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6CF23631EADFFBD00580862;
+			remoteInfo = NextStopNotification;
+		};
+		C6CF237A1EAE123C00580862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9431F9B11C19935000860884 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 943FF82A1C2D63AF009E7C5F;
+			remoteInfo = ICEInformationiOS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -114,6 +134,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				C6CF23721EADFFBD00580862 /* NextStopNotification.appex in Embed App Extensions */,
 				C6A2A4E61E9792FD00B55A0F /* ICEOnboardWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -128,7 +149,6 @@
 		9424A9431C401BBE008BF4A0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		9431F9B91C19935000860884 /* ICEInformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICEInformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9431F9BC1C19935000860884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9431F9BE1C19935000860884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9431F9C11C19935000860884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9431F9C31C19935000860884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9431F9C61C19935000860884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -167,6 +187,12 @@
 		C6A2A4E11E9792FD00B55A0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C6A2A4E31E9792FD00B55A0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6A2A4F01E97955700B55A0F /* FakeICENetworkAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeICENetworkAccess.swift; sourceTree = "<group>"; };
+		C6CF23641EADFFBD00580862 /* NextStopNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NextStopNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6CF23651EADFFBD00580862 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		C6CF23671EADFFBD00580862 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		C6CF236A1EADFFBD00580862 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		C6CF236D1EADFFBD00580862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		C6CF236F1EADFFBD00580862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DBNetworkStack.framework; path = Carthage/Build/iOS/DBNetworkStack.framework; sourceTree = "<group>"; };
 		C6DC8F751E714110001DFB5F /* JSONCodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONCodable.framework; path = Carthage/Build/iOS/JSONCodable.framework; sourceTree = "<group>"; };
 		C6E5AD221E97A79F00CAA761 /* Sourcing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sourcing.framework; path = ../DBNetworkStackSourcing/Carthage/Build/iOS/Sourcing.framework; sourceTree = "<group>"; };
@@ -212,6 +238,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C6CF23611EADFFBD00580862 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6CF23681EADFFBD00580862 /* UserNotificationsUI.framework in Frameworks */,
+				C6CF23661EADFFBD00580862 /* UserNotifications.framework in Frameworks */,
+				C6CF23761EAE02E200580862 /* DBNetworkStack.framework in Frameworks */,
+				C6CF23771EAE02E200580862 /* JSONCodable.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -232,6 +269,7 @@
 				943FF82C1C2D63AF009E7C5F /* ICEInformationiOS */,
 				943FF83A1C2D63AF009E7C5F /* ICEInformationiOSTests */,
 				C6A2A4DD1E9792FD00B55A0F /* ICEOnboardWidget */,
+				C6CF23691EADFFBD00580862 /* NextStopNotification */,
 				9431F9BA1C19935000860884 /* Products */,
 				C6DC8F731E714110001DFB5F /* Frameworks */,
 			);
@@ -244,6 +282,7 @@
 				943FF82B1C2D63AF009E7C5F /* ICEInTrainAPI.framework */,
 				943FF8341C2D63AF009E7C5F /* ICEInformationiOSTests.xctest */,
 				C6A2A4DA1E9792FD00B55A0F /* ICEOnboardWidget.appex */,
+				C6CF23641EADFFBD00580862 /* NextStopNotification.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				9431F9BC1C19935000860884 /* AppDelegate.swift */,
-				9431F9BE1C19935000860884 /* ViewController.swift */,
 				9431F9C01C19935000860884 /* Main.storyboard */,
 				945BFA151C490C2200D0A7D9 /* StationViewController.swift */,
 				945BFA0D1C48EE0600D0A7D9 /* TrainStationCell.swift */,
@@ -338,6 +376,16 @@
 			path = ICEOnboardWidget;
 			sourceTree = "<group>";
 		};
+		C6CF23691EADFFBD00580862 /* NextStopNotification */ = {
+			isa = PBXGroup;
+			children = (
+				C6CF236A1EADFFBD00580862 /* NotificationViewController.swift */,
+				C6CF236C1EADFFBD00580862 /* MainInterface.storyboard */,
+				C6CF236F1EADFFBD00580862 /* Info.plist */,
+			);
+			path = NextStopNotification;
+			sourceTree = "<group>";
+		};
 		C6DC8F731E714110001DFB5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +393,8 @@
 				C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */,
 				C6DC8F751E714110001DFB5F /* JSONCodable.framework */,
 				C6A2A4DB1E9792FD00B55A0F /* NotificationCenter.framework */,
+				C6CF23651EADFFBD00580862 /* UserNotifications.framework */,
+				C6CF23671EADFFBD00580862 /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -379,6 +429,7 @@
 			dependencies = (
 				943FF83F1C2D63AF009E7C5F /* PBXTargetDependency */,
 				C6A2A4E51E9792FD00B55A0F /* PBXTargetDependency */,
+				C6CF23711EADFFBD00580862 /* PBXTargetDependency */,
 			);
 			name = ICEInformation;
 			productName = ICEInformation;
@@ -442,6 +493,25 @@
 			productReference = C6A2A4DA1E9792FD00B55A0F /* ICEOnboardWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		C6CF23631EADFFBD00580862 /* NextStopNotification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6CF23731EADFFBD00580862 /* Build configuration list for PBXNativeTarget "NextStopNotification" */;
+			buildPhases = (
+				C6CF23601EADFFBD00580862 /* Sources */,
+				C6CF23611EADFFBD00580862 /* Frameworks */,
+				C6CF23621EADFFBD00580862 /* Resources */,
+				C6CF23791EAE02FD00580862 /* 📦 Carthage Copy */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6CF237B1EAE123C00580862 /* PBXTargetDependency */,
+			);
+			name = NextStopNotification;
+			productName = NextStopNotification;
+			productReference = C6CF23641EADFFBD00580862 /* NextStopNotification.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -471,6 +541,11 @@
 						DevelopmentTeam = 9WVRBLCL7U;
 						ProvisioningStyle = Automatic;
 					};
+					C6CF23631EADFFBD00580862 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 9WVRBLCL7U;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 9431F9B41C19935000860884 /* Build configuration list for PBXProject "ICEInformation" */;
@@ -490,6 +565,7 @@
 				943FF82A1C2D63AF009E7C5F /* ICEInformationiOS */,
 				943FF8331C2D63AF009E7C5F /* ICEInformationiOSTests */,
 				C6A2A4D91E9792FD00B55A0F /* ICEOnboardWidget */,
+				C6CF23631EADFFBD00580862 /* NextStopNotification */,
 			);
 		};
 /* End PBXProject section */
@@ -524,6 +600,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A2A4E21E9792FD00B55A0F /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6CF23621EADFFBD00580862 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6CF236E1EADFFBD00580862 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +647,22 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
+		C6CF23791EAE02FD00580862 /* 📦 Carthage Copy */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/DBNetworkStack.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/JSONCodable.framework",
+			);
+			name = "📦 Carthage Copy";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		C6DC8F7A1E7153E5001DFB5F /* 📦 Carthage Copy */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -587,7 +687,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9431F9BF1C19935000860884 /* ViewController.swift in Sources */,
 				C6383A5E1E95533B00C28F8E /* ConnectingTrainViewController.swift in Sources */,
 				945BFA0E1C48EE0600D0A7D9 /* TrainStationCell.swift in Sources */,
 				945BFA141C48FAF000D0A7D9 /* StationOverviewViewController.swift in Sources */,
@@ -642,6 +741,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C6CF23601EADFFBD00580862 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6CF236B1EADFFBD00580862 /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -670,6 +777,16 @@
 			target = 943FF82A1C2D63AF009E7C5F /* ICEInformationiOS */;
 			targetProxy = C6A2A4EE1E97941800B55A0F /* PBXContainerItemProxy */;
 		};
+		C6CF23711EADFFBD00580862 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6CF23631EADFFBD00580862 /* NextStopNotification */;
+			targetProxy = C6CF23701EADFFBD00580862 /* PBXContainerItemProxy */;
+		};
+		C6CF237B1EAE123C00580862 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 943FF82A1C2D63AF009E7C5F /* ICEInformationiOS */;
+			targetProxy = C6CF237A1EAE123C00580862 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -693,6 +810,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				C6A2A4E11E9792FD00B55A0F /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		C6CF236C1EADFFBD00580862 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6CF236D1EADFFBD00580862 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -955,6 +1080,49 @@
 			};
 			name = Release;
 		};
+		C6CF23741EADFFBD00580862 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 9WVRBLCL7U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = NextStopNotification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformation.NextStopNotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C6CF23751EADFFBD00580862 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 9WVRBLCL7U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = NextStopNotification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.ICEInformation.NextStopNotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1002,6 +1170,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C6CF23731EADFFBD00580862 /* Build configuration list for PBXNativeTarget "NextStopNotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6CF23741EADFFBD00580862 /* Debug */,
+				C6CF23751EADFFBD00580862 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

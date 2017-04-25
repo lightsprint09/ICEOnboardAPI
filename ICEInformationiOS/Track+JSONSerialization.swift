@@ -29,11 +29,18 @@
 import Foundation
 import JSONCodable
 
-extension Track: JSONDecodable {
+extension Track: JSONDecodable, JSONEncodable {
     public init(object: JSONObject) throws {
         let decoder = JSONDecoder(object: object)
         scheduledTrack = try decoder.decode("scheduled")
         actualTrack = try decoder.decode("actual")
+    }
+    
+    public func toJSON() throws -> Any {
+        return try JSONEncoder.create({ (encoder) -> Void in
+            try encoder.encode(scheduledTrack, key: "scheduled")
+            try encoder.encode(actualTrack, key: "actual")
+        })
     }
 
 }

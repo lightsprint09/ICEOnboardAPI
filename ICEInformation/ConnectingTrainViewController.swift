@@ -30,6 +30,14 @@ import UIKit
 import DBNetworkStack
 import ICEInTrainAPI
 
+let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "HH:mm"
+    
+    return formatter
+}()
+
+
 class ConnectingTrainViewController: UITableViewController {
     var station: Station!
     var connections: TrainConnections?
@@ -55,7 +63,7 @@ class ConnectingTrainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainConnectionCell", for: indexPath)
         if let connection = connections?.connections[indexPath.row] {
-            cell.textLabel?.text = "\(connection.trainType) \(connection.trainNumber) nach \(connection.destination.name)"
+            cell.textLabel?.text = "\(dateFormatter.string(from: connection.schedule.departureTime)) \(connection.trainType) \(connection.trainNumber) nach \(connection.destination.name)"
             cell.detailTextLabel?.text = connection.track?.actualTrack ?? connection.track?.scheduledTrack
         }
         

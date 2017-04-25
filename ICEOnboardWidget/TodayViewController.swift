@@ -19,6 +19,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var nextStopStationNameLabel: UILabel!
     @IBOutlet weak var nextStopPlatformLabel: UILabel!
     
+    let widgetController: NCWidgetController? = nil
+    let widgetBundleIDentifier = "de.freiraum.ICEInformation.ICEOnboardWidget"
+    
     let networkService: NetworkServiceProviding = NetworkService(networkAccess: URLSession(configuration: .default), endPoints: urlKeys)
      var timer: Timer?
     
@@ -33,58 +36,50 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         
         networkService.request(ICETripResource(), onCompletion: { trip in
-            self.destinationLabel.text = "\(trip.trainName) nach \(trip.to.station.name)"
-            let nextStop = trip.commingStops.first
-            let arrivaleDate = nextStop?.schduledTimes.arrivalTime
-            self.nextStopArrivalLabel.text = arrivaleDate.map { TodayViewController.dateFormatter.string(from: $0)}.map { $0 + (nextStop?.schduledTimes.depatureDelay.map {" +\(Int($0 / 60))" } ?? "") }
-            self.nextStopStationNameLabel.text = nextStop?.station.name
-            self.nextStopPlatformLabel.text = (nextStop?.track?.actualTrack ?? nextStop?.track?.scheduledTrack).map { "Gleis " + $0 }
-            self.speedLabel.isHidden = true
-            
-            let widgetController = NCWidgetController()
-            widgetController.setHasContent(true, forWidgetWithBundleIdentifier: "de.freiraum.ICEInformation.ICEOnboardWidget")
+            self.setICETripUI(trip: trip)
+
+            self.widgetController?.setHasContent(true, forWidgetWithBundleIdentifier: self.widgetBundleIDentifier)
             
         }, onError: { err in
-            let widgetController = NCWidgetController()
-            widgetController.setHasContent(false, forWidgetWithBundleIdentifier: "de.freiraum.ICEInformation.ICEOnboardWidget")
-            print(err.localizedDescription)
+            self.widgetController?.setHasContent(false, forWidgetWithBundleIdentifier: self.widgetBundleIDentifier)
+            print(err)
             
         })
     }
     
+    func setICETripUI(trip: ICETrip) {
+        destinationLabel.text = "\(trip.trainName) nach \(trip.to.station.name)"
+        let nextStop = trip.commingStops.first
+        let arrivaleDate = nextStop?.schduledTimes.arrivalTime
+        nextStopArrivalLabel.text = arrivaleDate.map { TodayViewController.dateFormatter.string(from: $0)}.map { $0 + (nextStop?.schduledTimes.depatureDelay.map {" +\(Int($0 / 60))" } ?? "") }
+        nextStopStationNameLabel.text = nextStop?.station.name
+        nextStopPlatformLabel.text = (nextStop?.track?.actualTrack ?? nextStop?.track?.scheduledTrack).map { "Gleis " + $0 }
+    }
+    
     func reloadInformation(onCompletion doneCallback: @escaping (Bool) -> Void) {
         networkService.request(ICEStatusResource(), onCompletion: { status in
-            
-            if status.speed == 0.0 {
-                self.speedLabel.isHidden = true
-            } else {
-                self.speedLabel.text = "\(Int(status.speed)) km/h"
-                self.speedLabel.isHidden = false
-            }
+            self.speedLabel.text = "\(Int(status.speed)) km/h"
             doneCallback(true)
         }, onError: { err in
-            print(err.localizedDescription)
+            print(err)
             doneCallback(false)
         })
         
         networkService.request(ICETripResource(), onCompletion: { trip in
-            self.destinationLabel.text = "\(trip.trainName) nach \(trip.to.station.name)"
-            let nextStop = trip.commingStops.first
-            let arrivaleDate = nextStop?.schduledTimes.arrivalTime
-            self.nextStopArrivalLabel.text = arrivaleDate.map { TodayViewController.dateFormatter.string(from: $0)}.map { $0 + (nextStop?.schduledTimes.depatureDelay.map {" +\(Int($0 / 60))" } ?? "") }
-            self.nextStopStationNameLabel.text = nextStop?.station.name
-            self.nextStopPlatformLabel.text = (nextStop?.track?.actualTrack ?? nextStop?.track?.scheduledTrack).map { "Gleis " + $0 }
+           self.setICETripUI(trip: trip)
             
-            let widgetController = NCWidgetController()
-            widgetController.setHasContent(true, forWidgetWithBundleIdentifier: "de.freiraum.ICEInformation.ICEOnboardWidget")
+            self.widgetController?.setHasContent(true, forWidgetWithBundleIdentifier: self.widgetBundleIDentifier)
             doneCallback(true)
             
         }, onError: { err in
-            let widgetController = NCWidgetController()
-            widgetController.setHasContent(false, forWidgetWithBundleIdentifier: "de.freiraum.ICEInformation.ICEOnboardWidget")
-            print(err.localizedDescription)
+            self.widgetController?.setHasContent(false, forWidgetWithBundleIdentifier: self.widgetBundleIDentifier)
+            print(err)
             doneCallback(false)
         })
+    }
+    
+    @IBAction func didTapNextStation(_ sender: Any) {
+        //extensionContext?.open(<#T##URL: URL##URL#>, completionHandler: nil)
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

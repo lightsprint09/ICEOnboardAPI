@@ -29,7 +29,7 @@
 import Foundation
 import JSONCodable
 
-extension StationSchedule: JSONDecodable {
+extension StationSchedule: JSONDecodable, JSONEncodable {
     public init(object: JSONObject) throws {
         let decoder = JSONDecoder(object: object)
         let scheduledArrivalTime: Double? = try decoder.decode("scheduledArrivalTime")
@@ -40,6 +40,15 @@ extension StationSchedule: JSONDecodable {
         
         arrivalDelay = extractDelay(try decoder.decode("arrivalDelay"))
         depatureDelay = extractDelay(try  decoder.decode("departureDelay"))
+    }
+    
+    public func toJSON() throws -> Any {
+        return try JSONEncoder.create({ (encoder) -> Void in
+            try encoder.encode(arrivalTime.timeIntervalSinceReferenceDate, key: "scheduledArrivalTime")
+            try encoder.encode(departureTime.timeIntervalSinceReferenceDate, key: "scheduledArrivalTime")
+            try encoder.encode(arrivalDelay, key: "arrivalDelay")
+            try encoder.encode(depatureDelay, key: "depatureDelay")
+        })
     }
 }
 

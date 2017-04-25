@@ -34,3 +34,10 @@ public struct Stop {
     public let schduledTimes: StationSchedule
     public let track: Track?
 }
+
+extension Stop: Equatable { }
+
+public func ==(lhs: Stop, rhs: Stop) -> Bool {
+    return lhs.station.evaId == rhs.station.evaId
+}
+

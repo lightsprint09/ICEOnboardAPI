@@ -32,7 +32,11 @@ public func ICETripResource() -> Resource<ICETrip> {
 }
 
 public func ConnectingTrains(at station: Station) -> Resource<TrainConnections> {
-    let request = NetworkRequest(path: "tripInfo/connection/\(station.evaId)", baseURLKey: "INTrainBaseURLKey")
+    return ConnectingTrains(for: station.evaId)
+}
+
+public func ConnectingTrains(for evaId: String) -> Resource<TrainConnections> {
+    let request = NetworkRequest(path: "tripInfo/connection/\(evaId)", baseURLKey: "INTrainBaseURLKey")
     
     return JSONResource(request: request).wrapped()
 }

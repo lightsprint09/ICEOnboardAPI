@@ -29,11 +29,20 @@
 import Foundation
 import JSONCodable
 
-extension Station: JSONDecodable {
+extension Station: JSONDecodable, JSONEncodable {
     public init(object: JSONObject) throws {
         let decoder = JSONDecoder(object: object)
         location = try decoder.decode("geocoordinates")
         evaId = try decoder.decode("evaNr")
         name = try decoder.decode("name")
     }
+    
+    public func toJSON() throws -> Any {
+        return try JSONEncoder.create({ (encoder) -> Void in
+            try encoder.encode(location, key: "geocoordinates")
+            try encoder.encode(evaId, key: "evaNr")
+            try encoder.encode(name, key: "name")
+        })
+    }
+
 }

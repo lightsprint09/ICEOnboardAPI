@@ -29,7 +29,7 @@
 import Foundation
 import JSONCodable
 
-extension TrainConnection: JSONDecodable {
+extension TrainConnection: JSONDecodable, JSONEncodable {
     public init(object: JSONObject) throws {
         let decoder = JSONDecoder(object: object)
         trainType = try decoder.decode("trainType")
@@ -38,6 +38,17 @@ extension TrainConnection: JSONDecodable {
         schedule = try decoder.decode("timetable")
         track = try decoder.decode("track")
         destination = try decoder.decode("station")
+    }
+    
+    public func toJSON() throws -> Any {
+        return try JSONEncoder.create({ (encoder) -> Void in
+            try encoder.encode(trainType, key: "trainType")
+            try encoder.encode(vzn, key: "vzn")
+            try encoder.encode(trainNumber, key: "trainNumber")
+            try encoder.encode(schedule, key: "timetable")
+            try encoder.encode(track, key: "track")
+            try encoder.encode(destination, key: "destination")
+        })
     }
     
 }
