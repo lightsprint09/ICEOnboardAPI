@@ -23,9 +23,6 @@ class StationOverviewViewController: UIViewController {
     
     var dataProvider: ArrayDataProvider<Stop>!
     var dataSource: TableViewDataSource<Stop>!
-    
-    var pushEvaID: Stop?
-    
     let networkService = NetworkService(networkAccess: URLSession(configuration: .default), endPoints: urlKeys)
     
     override func viewDidLoad() {
@@ -35,11 +32,6 @@ class StationOverviewViewController: UIViewController {
         NCWidgetController().setHasContent(true, forWidgetWithBundleIdentifier: "de.freiraum.ICEInformation.ICEOnboardWidget")
         Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(StationOverviewViewController.fetchData), userInfo: nil, repeats: true)
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(StationOverviewViewController.fetchStatus), userInfo: nil, repeats: true)
-        if let evaID = pushEvaID {
-            let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "StationViewController") as! StationViewController
-            vc.stop = evaID
-            navigationController?.pushViewController(vc, animated: false)
-        }
     }
     
     func setupDataSource() {

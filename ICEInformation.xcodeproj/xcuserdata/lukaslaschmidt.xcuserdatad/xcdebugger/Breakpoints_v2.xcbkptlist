@@ -58,7 +58,7 @@
                   moduleName = "ICEInformation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lukaslaschmidt/Developer/InTrain-ICE-API/ICEInformation/AppDelegate.swift"
-                  timestampString = "514730482.492688"
+                  timestampString = "514888017.522967"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -73,7 +73,7 @@
                   moduleName = "ICEInformation"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lukaslaschmidt/Developer/InTrain-ICE-API/ICEInformation/AppDelegate.swift"
-                  timestampString = "514730482.494553"
+                  timestampString = "514888017.525599"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -81,6 +81,22 @@
                   offsetFromSymbolStart = "320">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NextStopNotification/NotificationViewController.swift"
+            timestampString = "514877237.286724"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "didReceive(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
