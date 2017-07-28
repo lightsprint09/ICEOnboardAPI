@@ -23,7 +23,7 @@
 		943FF84C1C2D66EA009E7C5F /* ICEStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF84B1C2D66EA009E7C5F /* ICEStatus.swift */; };
 		943FF84E1C2D675C009E7C5F /* ICETrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF84D1C2D675C009E7C5F /* ICETrip.swift */; };
 		943FF8501C2E9F7C009E7C5F /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF84F1C2E9F7C009E7C5F /* TestData.swift */; };
-		943FF8541C2EA205009E7C5F /* ICEStatusURLRessources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF8531C2EA205009E7C5F /* ICEStatusURLRessources.swift */; };
+		943FF8541C2EA205009E7C5F /* TrainOnBoardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF8531C2EA205009E7C5F /* TrainOnBoardAPI.swift */; };
 		945BFA0E1C48EE0600D0A7D9 /* TrainStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945BFA0D1C48EE0600D0A7D9 /* TrainStationCell.swift */; };
 		945BFA101C48F0B300D0A7D9 /* Station+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945BFA0F1C48F0B300D0A7D9 /* Station+MKAnnotation.swift */; };
 		945BFA121C48F13700D0A7D9 /* Trip+MKAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945BFA111C48F13700D0A7D9 /* Trip+MKAnnotations.swift */; };
@@ -166,7 +166,7 @@
 		943FF84B1C2D66EA009E7C5F /* ICEStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICEStatus.swift; sourceTree = "<group>"; };
 		943FF84D1C2D675C009E7C5F /* ICETrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICETrip.swift; sourceTree = "<group>"; };
 		943FF84F1C2E9F7C009E7C5F /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
-		943FF8531C2EA205009E7C5F /* ICEStatusURLRessources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICEStatusURLRessources.swift; sourceTree = "<group>"; };
+		943FF8531C2EA205009E7C5F /* TrainOnBoardAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainOnBoardAPI.swift; sourceTree = "<group>"; };
 		945BFA0D1C48EE0600D0A7D9 /* TrainStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainStationCell.swift; sourceTree = "<group>"; };
 		945BFA0F1C48F0B300D0A7D9 /* Station+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Station+MKAnnotation.swift"; sourceTree = "<group>"; };
 		945BFA111C48F13700D0A7D9 /* Trip+MKAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+MKAnnotations.swift"; sourceTree = "<group>"; };
@@ -337,7 +337,7 @@
 			children = (
 				C6383A471E95420900C28F8E /* Model */,
 				94157D491C2EB59400557392 /* Extensions */,
-				943FF8531C2EA205009E7C5F /* ICEStatusURLRessources.swift */,
+				943FF8531C2EA205009E7C5F /* TrainOnBoardAPI.swift */,
 				C6A2A4F01E97955700B55A0F /* FakeICENetworkAccess.swift */,
 			);
 			name = Source;
@@ -733,7 +733,7 @@
 				9424A9441C401BBE008BF4A0 /* Location.swift in Sources */,
 				C6CF23881EB0800E00580862 /* FirstClassDeliverOffers+JSONSerialization.swift in Sources */,
 				C6383A541E9544B000C28F8E /* StationSchedule+JSONSerialization.swift in Sources */,
-				943FF8541C2EA205009E7C5F /* ICEStatusURLRessources.swift in Sources */,
+				943FF8541C2EA205009E7C5F /* TrainOnBoardAPI.swift in Sources */,
 				94157D4B1C2EB5B100557392 /* Location+CLLocation.swift in Sources */,
 				943FF84C1C2D66EA009E7C5F /* ICEStatus.swift in Sources */,
 				943FF84E1C2D675C009E7C5F /* ICETrip.swift in Sources */,
