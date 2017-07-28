@@ -22,20 +22,21 @@
 
 import UIKit
 import DBNetworkStack
-import ICEInTrainAPI
+import ICEOnboardAPI
 import Sourcing
 
 
 class ServiceViewController: UITableViewController {
     
-    let networkService = NetworkService(networkAccess: URLSession(configuration: .default), endPoints: urlKeys)
+    let networkService = NetworkService(networkAccess: URLSession(configuration: .default))
     var dataSource: TableViewDataSource<Buyable>!
     var dataProvider: ArrayDataProvider<Buyable>!
+    let trainOnBoardAPI = TrainOnBoardAPI()
     
     override func viewDidLoad() {
         tableView.estimatedRowHeight = 55
         tableView.rowHeight = UITableViewAutomaticDimension
-        let firstClassOffers = FirstClassOffer()
+        let firstClassOffers = trainOnBoardAPI.firstClassOffers()
         let cell = CellConfiguration<BuyableCell>()
         dataProvider = ArrayDataProvider(rows: [])
         dataSource = TableViewDataSource(tableView: tableView, dataProvider: dataProvider, cell: cell)

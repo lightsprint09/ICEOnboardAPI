@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-import ICEInTrainAPI
+import ICEOnboardAPI
 import DBNetworkStack
 import Sourcing
 import NotificationCenter
@@ -23,7 +23,8 @@ class StationOverviewViewController: UIViewController {
     
     var dataProvider: ArrayDataProvider<Stop>!
     var dataSource: TableViewDataSource<Stop>!
-    let networkService = NetworkService(networkAccess: URLSession(configuration: .default), endPoints: urlKeys)
+    let trainOnBoardAPI = TrainOnBoardAPI()
+    let networkService = NetworkService(networkAccess: URLSession(configuration: .default))
     
     override func viewDidLoad() {
         setupDataSource()
@@ -40,15 +41,13 @@ class StationOverviewViewController: UIViewController {
     }
     
     func fetchStatus() {
-        let resource = ICEStatusResource()
-        networkService.request(resource, onCompletion: didSuceedStatusLoad, onError: { error in
+        networkService.request(trainOnBoardAPI.status(), onCompletion: didSuceedStatusLoad, onError: { error in
             print(error)
         })
     }
     
     func fetchData() {
-        let resource = ICETripResource()
-        networkService.request(resource, onCompletion: didSuceedTripLoad, onError: { error in
+        networkService.request(trainOnBoardAPI.trip(), onCompletion: didSuceedTripLoad, onError: { error in
             print(error)
         })
     }
@@ -104,7 +103,7 @@ class StationOverviewViewController: UIViewController {
         
         content.sound = UNNotificationSound.default()
         let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
-        networkService.request(ConnectingTrains(at: nextStop.station), onCompletion: { connections in
+        networkService.request(trainOnBoardAPI.connectionTrains(at: nextStop.station), onCompletion: { connections in
             content.userInfo = ["evaId": try! nextStop.station.toJSON(), "payload": try! connections.toJSON()]
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             UNUserNotificationCenter.current().add(request) {(error) in

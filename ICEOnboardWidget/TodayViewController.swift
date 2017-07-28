@@ -9,7 +9,7 @@
 import UIKit
 import NotificationCenter
 import DBNetworkStack
-import ICEInTrainAPI
+import ICEOnboardAPI
 
 
 class TodayViewController: UIViewController, NCWidgetProviding {
@@ -21,8 +21,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     let widgetController: NCWidgetController? = nil
     let widgetBundleIDentifier = "de.freiraum.ICEInformation.ICEOnboardWidget"
+    let trainOnBoardAPI = TrainOnBoardAPI()
     
-    let networkService: NetworkServiceProviding = NetworkService(networkAccess: URLSession(configuration: .default), endPoints: urlKeys)
+    let networkService: NetworkServiceProviding = NetworkService(networkAccess: URLSession(configuration: .default))
      var timer: Timer?
     
     static let dateFormatter: DateFormatter = {
@@ -35,7 +36,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.request(ICETripResource(), onCompletion: { trip in
+        networkService.request(trainOnBoardAPI.trip(), onCompletion: { trip in
             self.setICETripUI(trip: trip)
 
             self.widgetController?.setHasContent(true, forWidgetWithBundleIdentifier: self.widgetBundleIDentifier)
@@ -57,7 +58,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func reloadInformation(onCompletion doneCallback: @escaping (Bool) -> Void) {
-        networkService.request(ICEStatusResource(), onCompletion: { status in
+        networkService.request(trainOnBoardAPI.status(), onCompletion: { status in
             self.speedLabel.text = "\(Int(status.speed)) km/h"
             doneCallback(true)
         }, onError: { err in
@@ -65,7 +66,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             doneCallback(false)
         })
         
-        networkService.request(ICETripResource(), onCompletion: { trip in
+        networkService.request(trainOnBoardAPI.trip(), onCompletion: { trip in
            self.setICETripUI(trip: trip)
             
             self.widgetController?.setHasContent(true, forWidgetWithBundleIdentifier: self.widgetBundleIDentifier)

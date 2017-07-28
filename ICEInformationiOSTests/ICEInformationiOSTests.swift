@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import ICEInTrainAPI
+@testable import ICEOnboardAPI
 
 class ICEInformationiOSTests: XCTestCase {
     

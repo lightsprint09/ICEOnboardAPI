@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ICEInTrainAPI
+import ICEOnboardAPI
 import MapKit
 
 extension UIColor {

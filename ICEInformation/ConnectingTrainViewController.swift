@@ -28,7 +28,7 @@
 
 import UIKit
 import DBNetworkStack
-import ICEInTrainAPI
+import ICEOnboardAPI
 
 let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -41,10 +41,11 @@ let dateFormatter: DateFormatter = {
 class ConnectingTrainViewController: UITableViewController {
     var station: Station!
     var connections: TrainConnections?
-    let networkService = NetworkService(networkAccess: URLSession(configuration: .default), endPoints: urlKeys)
+    let networkService = NetworkService(networkAccess: URLSession(configuration: .default))
+    let trainOnBoardAPI = TrainOnBoardAPI()
     
     override func viewDidLoad() {
-        networkService.request(ConnectingTrains(at: station), onCompletion: { connections in
+        networkService.request(trainOnBoardAPI.connectionTrains(at: station), onCompletion: { connections in
             self.connections = connections
             self.tableView.reloadData()
         }, onError: { error in

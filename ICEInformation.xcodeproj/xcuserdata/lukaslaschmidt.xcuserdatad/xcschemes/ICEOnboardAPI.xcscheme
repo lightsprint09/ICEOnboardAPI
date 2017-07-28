@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "943FF82A1C2D63AF009E7C5F"
-               BuildableName = "ICEInTrainAPI.framework"
-               BlueprintName = "ICEInformationiOS"
+               BuildableName = "ICEOnboardAPI.framework"
+               BlueprintName = "ICEOnboardAPI"
                ReferencedContainer = "container:ICEInformation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "943FF82A1C2D63AF009E7C5F"
-            BuildableName = "ICEInTrainAPI.framework"
-            BlueprintName = "ICEInformationiOS"
+            BuildableName = "ICEOnboardAPI.framework"
+            BlueprintName = "ICEOnboardAPI"
             ReferencedContainer = "container:ICEInformation.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "943FF82A1C2D63AF009E7C5F"
-            BuildableName = "ICEInTrainAPI.framework"
-            BlueprintName = "ICEInformationiOS"
+            BuildableName = "ICEOnboardAPI.framework"
+            BlueprintName = "ICEOnboardAPI"
             ReferencedContainer = "container:ICEInformation.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

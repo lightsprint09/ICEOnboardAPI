@@ -22,7 +22,7 @@
 
 import Foundation
 import Sourcing
-import ICEInTrainAPI
+import ICEOnboardAPI
 
 class BuyableCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!

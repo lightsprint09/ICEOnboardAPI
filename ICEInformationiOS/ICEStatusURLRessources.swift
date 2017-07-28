@@ -9,41 +9,46 @@
 import Foundation
 import DBNetworkStack
 
-let baseURLKey = "INTrainBaseURLKey"
-let baseURL = URL(string: "https://portal.imice.de/api1/rs/")!
-public let urlKeys: [String: URL] = [baseURLKey: baseURL]
-let statusAPIURL = URL(string: "status", relativeTo: baseURL)!
-let tripInfoURL = URL(string: "tripInfo", relativeTo: baseURL)!
+let baseURLPortal = URL(string: "https://portal.imice.de/api1/rs/")!
 
 extension ICEStatus: JSONMappable { }
 extension ICETrip: JSONMappable { }
 extension TrainConnections: JSONMappable { }
 extension FirstClassDeliverOffers: JSONMappable { }
 
-public func ICEStatusResource() -> Resource<ICEStatus> {
-    let request = NetworkRequest(path: "status", baseURLKey: "INTrainBaseURLKey")
+public final class TrainOnBoardAPI {
     
-    return JSONResource(request: request).wrapped()
-}
-
-public func ICETripResource() -> Resource<ICETrip> {
-    let request = NetworkRequest(path: "tripInfo", baseURLKey: "INTrainBaseURLKey")
+    private let baseURL: URL
     
-    return JSONResource(request: request).wrapped()
-}
-
-public func ConnectingTrains(at station: Station) -> Resource<TrainConnections> {
-    return ConnectingTrains(for: station.evaId)
-}
-
-public func ConnectingTrains(for evaId: String) -> Resource<TrainConnections> {
-    let request = NetworkRequest(path: "tripInfo/connection/\(evaId)", baseURLKey: "INTrainBaseURLKey")
+    public init(baseURL: URL = baseURLPortal) {
+        self.baseURL = baseURL
+    }
     
-    return JSONResource(request: request).wrapped()
-}
-
-public func FirstClassOffer() -> Resource<FirstClassDeliverOffers> {
-    let request = NetworkRequest(path: "filterTop/1259026820/0", baseURLKey: "INTrainBaseURLKey")
+    public func status() -> Resource<ICEStatus> {
+        let request = URLRequest(path: "status", baseURL: baseURL)
+        
+        return Resource(resource: JSONResource(request: request))
+    }
     
-    return JSONResource(request: request).wrapped()
+    public func trip() -> Resource<ICETrip> {
+        let request = URLRequest(path: "tripInfo", baseURL: baseURL)
+        
+        return Resource(resource: JSONResource(request: request))
+    }
+    
+    public func connectionTrains(at station: Station) -> Resource<TrainConnections> {
+        return connectionTrains(for: station.evaId)
+    }
+    
+    public func connectionTrains(for evaId: String) -> Resource<TrainConnections> {
+        let request = URLRequest(path: "tripInfo/connection/\(evaId)", baseURL: baseURL)
+        
+        return Resource(resource: JSONResource(request: request))
+    }
+    
+    public func firstClassOffers() -> Resource<FirstClassDeliverOffers> {
+        let request = URLRequest(path: "filterTop/1259026820/0", baseURL: baseURL)
+        
+        return Resource(resource: JSONResource(request: request))
+    }
 }
