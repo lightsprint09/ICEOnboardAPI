@@ -10,6 +10,6 @@ import MapKit
 
 extension ICETrip {
     public var mapAnnotations: [MKPointAnnotation] {
-        return stops.map { $0.mapAnnotation }
+        return stops.map { $0.station.mapAnnotation }.flatMap { $0 }
     }
 }

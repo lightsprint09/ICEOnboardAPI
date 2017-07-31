@@ -8,36 +8,46 @@
 
 import UIKit
 import MapKit
-import ICEInTrainAPI
+import ICEOnboardAPI
 import DBNetworkStack
+import Sourcing
+import NotificationCenter
+import UserNotifications
 
-class StationOverviewViewController: UIViewController, UITableViewDataSource {
+
+class StationOverviewViewController: UIViewController {
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     var trip: ICETrip?
     
-    let networkService = NetworkService(networkAccess: URLSession(configuration: .default), endPoints: urlKeys)
-    
+    var dataProvider: ArrayDataProvider<Stop>!
+    var dataSource: TableViewDataSource<Stop>!
+    let trainOnBoardAPI = TrainOnBoardAPI()
+    let networkService = NetworkService(networkAccess: URLSession(configuration: .default))
     
     override func viewDidLoad() {
-        tableView.dataSource = self
-        
+        setupDataSource()
         fetchData()
+        fetchStatus()
+        NCWidgetController().setHasContent(true, forWidgetWithBundleIdentifier: "de.freiraum.ICEInformation.ICEOnboardWidget")
         Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(StationOverviewViewController.fetchData), userInfo: nil, repeats: true)
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(StationOverviewViewController.fetchStatus), userInfo: nil, repeats: true)
     }
     
+    func setupDataSource() {
+        dataProvider = ArrayDataProvider(rows: [])
+        dataSource = TableViewDataSource(tableView: tableView, dataProvider: dataProvider, cell: CellConfiguration<TrainStationCell>())
+    }
+    
     func fetchStatus() {
-        let resource = ICEStatusResource()
-        networkService.request(resource, onCompletion: didSuceedStatusLoad, onError: { error in
+        networkService.request(trainOnBoardAPI.status(), onCompletion: didSuceedStatusLoad, onError: { error in
             print(error)
         })
     }
     
     func fetchData() {
-        let resource = ICETripResource()
-        networkService.request(resource, onCompletion: didSuceedTripLoad, onError: { error in
+        networkService.request(trainOnBoardAPI.trip(), onCompletion: didSuceedTripLoad, onError: { error in
             print(error)
         })
     }
@@ -50,46 +60,65 @@ class StationOverviewViewController: UIViewController, UITableViewDataSource {
         title = iceTrip.trainName
         mapView.addAnnotations(iceTrip.mapAnnotations)
         trip = iceTrip
-        tableView.reloadData()
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let trip = trip else { return 0 }
-        if section == 0 {
-            return trip.passedStops.count
+        dataProvider.headerTitles = ["Vergangene Halte", "Kommende Halte"]
+        dataProvider.reconfigure(with: [iceTrip.passedStops, iceTrip.commingStops])
+        guard let nextStop = iceTrip.nextStop, let indexPath = dataProvider.indexPath(for: nextStop) else {
+            return
         }
-        return trip.commingStops.count
-    }
-    
-    func stopAtIndexPath(_ indexPath: NSIndexPath) -> Station? {
-        if indexPath.section == 0 {
-            return trip?.passedStops[indexPath.row]
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        if #available(iOS 10.0, *) {
+            scheduleNotification(at: nextStop)
+        } else {
+            // Fallback on earlier versions
         }
-        return trip?.commingStops[indexPath.row]
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "trainstation-cell", for: indexPath)
-        guard let stationCell = cell as? TrainStationCell, let stop = stopAtIndexPath(indexPath as NSIndexPath) else { return cell }
-        stationCell.configureWithStation(stop)
+    func registerNotifications() {
         
-        return stationCell
+    }
+    var registerdNextStop: Stop?
+    @available(iOS 10.0, *)
+    func scheduleNotification(at nextStop: Stop) {
+        guard registerdNextStop != nextStop else {
+            return
+        }
+        registerdNextStop = nextStop
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
+            if !accepted {
+                print("Notification access denied.")
+            }
+        }
+        let category = UNNotificationCategory(identifier: "NextStop", actions: [], intentIdentifiers: [], options: .customDismissAction)
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        let calendar = Calendar(identifier: .gregorian)
+        let date = Date().addingTimeInterval(60)
+        let components = calendar.dateComponents(in: .current, from: date)
+        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+        let content = UNMutableNotificationContent()
+        content.title = "Nächster Halt"
+        content.body = "Um \(dateFormatter.string(from: nextStop.schduledTimes.arrivalTime.addingTimeInterval(nextStop.schduledTimes.arrivalDelay ?? 0))) erreichen wir \(nextStop.station.name)."
+        
+        content.categoryIdentifier = "NextStop"
+        
+        content.sound = UNNotificationSound.default()
+        let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
+        networkService.request(trainOnBoardAPI.connectionTrains(at: nextStop.station), onCompletion: { connections in
+            content.userInfo = ["evaId": try! nextStop.station.toJSON(), "payload": try! connections.toJSON()]
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            UNUserNotificationCenter.current().add(request) {(error) in
+                if let error = error {
+                    print("Uh oh! We had an error: \(error)")
+                }
+            }
+        }, onError: {_ in })
+        
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Passed Stops"
-        }
-        return "Next Stops"
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let stationViewController = segue.destination as? StationViewController, let indexPath = sender as? UITableViewCell {
-            stationViewController.station = stopAtIndexPath(tableView.indexPath(for: indexPath)! as NSIndexPath)!
+        if let stationViewController = segue.destination as? StationViewController {
+            stationViewController.stop = dataSource.selectedObject
         }
     }
 }

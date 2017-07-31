@@ -11,29 +11,33 @@ import Foundation
 public struct ICETrip {
     public let trainType: String
     public let trainNumber: String
-    public let stops: Array<Station>
+    public let stops: Array<Stop>
     
-    public var from: Station {
+    public var from: Stop {
         return stops.first!
     }
     
-    public var to: Station {
+    public var to: Stop {
         return stops.last!
     }
     
     public var trainName: String {
-        return trainType + trainNumber
+        return trainType + " " + trainNumber
     }
     
-    public var passedStops: [Station] {
+    public var passedStops: [Stop] {
         return stops.filter { $0.passed }
     }
     
-    public var commingStops: [Station] {
+    public var commingStops: [Stop] {
         return stops.filter { !$0.passed }
     }
     
-    public init(trainNumber: String, stops: Array<Station>, trainType: String) {
+    public var nextStop: Stop? {
+        return commingStops.first
+    }
+    
+    public init(trainNumber: String, stops: [Stop], trainType: String) {
         if stops.count < 2 {
             fatalError("A trip must have at least 2 stops")
         }
@@ -41,5 +45,4 @@ public struct ICETrip {
         self.stops = stops
         self.trainType = trainType
     }
-    
 }

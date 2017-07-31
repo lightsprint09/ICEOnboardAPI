@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "08E1C23069954CB7B944845CD25D0DCF5E5B7F92",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CA88B9C3A61C2C61F61FB87727D4B32C7135B85F" : 9223372036854775807,
+    "08E1C23069954CB7B944845CD25D0DCF5E5B7F92" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2D4E3032-EB56-4E80-BED8-759E96ABA2B2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CA88B9C3A61C2C61F61FB87727D4B32C7135B85F" : "DBNetworkStackSourcing\/",
+    "08E1C23069954CB7B944845CD25D0DCF5E5B7F92" : "InTrain-ICE-API\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ICEInformation",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ICEInformation.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lightsprint09\/InTrain-ICE-API.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "08E1C23069954CB7B944845CD25D0DCF5E5B7F92"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dbsystel\/DBNetworkStack-Sourcing.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CA88B9C3A61C2C61F61FB87727D4B32C7135B85F"
+    }
+  ]
+}
