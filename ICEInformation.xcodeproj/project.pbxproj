@@ -468,6 +468,7 @@
 				943FF8281C2D63AF009E7C5F /* Headers */,
 				943FF8291C2D63AF009E7C5F /* Resources */,
 				942BF0751C9C6611002220DA /* 📦 Carthage Copy */,
+				C6B1166F1F3857C300870F3D /* ✂️ Remove Frameworks File */,
 			);
 			buildRules = (
 			);
@@ -669,6 +670,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		C6B1166F1F3857C300870F3D /* ✂️ Remove Frameworks File */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "✂️ Remove Frameworks File";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == \"Release\" ]; then\necho \"✂️Remove Frameworks File: ${CONFIGURATION}\"\ncd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then\nrm -fr Frameworks\nfi\nfi";
 		};
 		C6CF23791EAE02FD00580862 /* 📦 Carthage Copy */ = {
 			isa = PBXShellScriptBuildPhase;
