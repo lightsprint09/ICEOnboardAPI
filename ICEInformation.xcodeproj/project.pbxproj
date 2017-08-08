@@ -466,7 +466,6 @@
 				943FF8261C2D63AF009E7C5F /* Sources */,
 				943FF8271C2D63AF009E7C5F /* Frameworks */,
 				943FF8281C2D63AF009E7C5F /* Headers */,
-				943FF8291C2D63AF009E7C5F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -600,13 +599,6 @@
 				9431F9C71C19935000860884 /* LaunchScreen.storyboard in Resources */,
 				9431F9C41C19935000860884 /* Assets.xcassets in Resources */,
 				9431F9C21C19935000860884 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		943FF8291C2D63AF009E7C5F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
