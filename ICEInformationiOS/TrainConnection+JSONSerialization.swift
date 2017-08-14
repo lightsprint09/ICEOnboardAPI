@@ -34,7 +34,7 @@ extension TrainConnection: JSONDecodable, JSONEncodable {
         let decoder = JSONDecoder(object: object)
         trainType = try decoder.decode("trainType")
         vzn = try decoder.decode("vzn")
-        trainNumber = (try decoder.decode("trainNumber") as String?) ?? try decoder.decode("lineName")
+        trainNumber = (try? decoder.decode("trainNumber") as String?) ?? try decoder.decode("lineName")
         schedule = try decoder.decode("timetable")
         track = try decoder.decode("track")
         destination = try decoder.decode("station")
