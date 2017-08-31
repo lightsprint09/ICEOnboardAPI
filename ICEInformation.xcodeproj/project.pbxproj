@@ -38,7 +38,6 @@
 		C6A2A4E21E9792FD00B55A0F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A2A4E01E9792FD00B55A0F /* MainInterface.storyboard */; };
 		C6A2A4E61E9792FD00B55A0F /* ICEOnboardWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C6A2A4DA1E9792FD00B55A0F /* ICEOnboardWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C6A2A4EB1E9793C600B55A0F /* DBNetworkStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */; };
-		C6A2A4EC1E9793C700B55A0F /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F751E714110001DFB5F /* JSONCodable.framework */; };
 		C6A2A4F11E97955700B55A0F /* FakeICENetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2A4F01E97955700B55A0F /* FakeICENetworkAccess.swift */; };
 		C6CF23661EADFFBD00580862 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CF23651EADFFBD00580862 /* UserNotifications.framework */; };
 		C6CF23681EADFFBD00580862 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CF23671EADFFBD00580862 /* UserNotificationsUI.framework */; };
@@ -50,9 +49,7 @@
 		C6CF238B1EB0842900580862 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CF238A1EB0842900580862 /* ServiceViewController.swift */; };
 		C6CF238D1EB08BB000580862 /* BuyableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CF238C1EB08BB000580862 /* BuyableCell.swift */; };
 		C6DC8F761E714110001DFB5F /* DBNetworkStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */; };
-		C6DC8F771E714110001DFB5F /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F751E714110001DFB5F /* JSONCodable.framework */; };
 		C6DC8F781E7153AF001DFB5F /* DBNetworkStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */; };
-		C6DC8F791E7153AF001DFB5F /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F751E714110001DFB5F /* JSONCodable.framework */; };
 		C6E5AD231E97A79F00CAA761 /* Sourcing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E5AD221E97A79F00CAA761 /* Sourcing.framework */; };
 		C6E5AD241E97A7A700CAA761 /* Sourcing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E5AD221E97A79F00CAA761 /* Sourcing.framework */; };
 /* End PBXBuildFile section */
@@ -182,7 +179,6 @@
 		C6CF238A1EB0842900580862 /* ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		C6CF238C1EB08BB000580862 /* BuyableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyableCell.swift; sourceTree = "<group>"; };
 		C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DBNetworkStack.framework; path = Carthage/Build/iOS/DBNetworkStack.framework; sourceTree = "<group>"; };
-		C6DC8F751E714110001DFB5F /* JSONCodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONCodable.framework; path = Carthage/Build/iOS/JSONCodable.framework; sourceTree = "<group>"; };
 		C6E5AD221E97A79F00CAA761 /* Sourcing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sourcing.framework; path = ../DBNetworkStackSourcing/Carthage/Build/iOS/Sourcing.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,7 +190,6 @@
 				C6E5AD231E97A79F00CAA761 /* Sourcing.framework in Frameworks */,
 				943FF8401C2D63AF009E7C5F /* ICEOnboardAPI.framework in Frameworks */,
 				C6DC8F781E7153AF001DFB5F /* DBNetworkStack.framework in Frameworks */,
-				C6DC8F791E7153AF001DFB5F /* JSONCodable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +198,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6DC8F761E714110001DFB5F /* DBNetworkStack.framework in Frameworks */,
-				C6DC8F771E714110001DFB5F /* JSONCodable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +215,6 @@
 			files = (
 				C6A2A4DC1E9792FD00B55A0F /* NotificationCenter.framework in Frameworks */,
 				C6A2A4EB1E9793C600B55A0F /* DBNetworkStack.framework in Frameworks */,
-				C6A2A4EC1E9793C700B55A0F /* JSONCodable.framework in Frameworks */,
 				C6E5AD241E97A7A700CAA761 /* Sourcing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,7 +366,6 @@
 			children = (
 				C6E5AD221E97A79F00CAA761 /* Sourcing.framework */,
 				C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */,
-				C6DC8F751E714110001DFB5F /* JSONCodable.framework */,
 				C6A2A4DB1E9792FD00B55A0F /* NotificationCenter.framework */,
 				C6CF23651EADFFBD00580862 /* UserNotifications.framework */,
 				C6CF23671EADFFBD00580862 /* UserNotificationsUI.framework */,
@@ -603,7 +595,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/DBNetworkStack.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/JSONCodable.framework",
 			);
 			name = "Carthage Copy";
 			outputPaths = (
