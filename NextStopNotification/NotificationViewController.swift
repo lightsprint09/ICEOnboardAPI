@@ -11,7 +11,6 @@ import UserNotifications
 import UserNotificationsUI
 import DBNetworkStack
 import ICEOnboardAPI
-import JSONCodable
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
 
