@@ -28,17 +28,35 @@
 
 import Foundation
 
-public struct TrainConnections {
+public struct TrainConnections: Decodable {
     public let connections: [TrainConnection]
 }
 
-
-
-public struct TrainConnection {
+public struct TrainConnection: Decodable {
     public let trainType: String
     public let vzn: String
     public let trainNumber: String
     public let schedule: StationSchedule
     public let track: Track?
     public let destination: Station
+    
+    enum CodingKeys: String, CodingKey {
+        case trainType
+        case vzn
+        case trainNumber
+        case schedule = "timetable"
+        case track
+        case destination = "station"
+    }
+//    
+//    public init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        trainType = try container.decode(String.self, forKey: .trainType)
+//        vzn = try container.decode(String.self, forKey: .vzn)
+//        trainNumber = try container.decode(String.self, forKey: .trainNumber)
+//        schedule = try container.decode(StationSchedule.self, forKey: .schedule)
+//        track = try container.decode(Track.self, forKey: .track)
+//        destination = try container.decode(Station.self, forKey: .destination)
+//    }
+
 }

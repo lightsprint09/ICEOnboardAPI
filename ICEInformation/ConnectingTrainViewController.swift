@@ -64,7 +64,7 @@ class ConnectingTrainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainConnectionCell", for: indexPath)
         if let connection = connections?.connections[indexPath.row] {
-            cell.textLabel?.text = "\(dateFormatter.string(from: connection.schedule.departureTime)) \(connection.trainType) \(connection.trainNumber) nach \(connection.destination.name)"
+            cell.textLabel?.text = "\(connection.schedule.departureTime.map( {dateFormatter.string(from: $0) } ) ?? "") \(connection.trainType) \(connection.trainNumber) nach \(connection.destination.name)"
             cell.detailTextLabel?.text = connection.track?.actualTrack ?? connection.track?.scheduledTrack
         }
         

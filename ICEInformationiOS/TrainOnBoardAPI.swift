@@ -11,14 +11,14 @@ import DBNetworkStack
 
 let baseURLPortal = URL(string: "https://portal.imice.de/api1/rs/")!
 
-extension ICEStatus: JSONMappable { }
-extension ICETrip: JSONMappable { }
-extension TrainConnections: JSONMappable { }
-extension FirstClassDeliverOffers: JSONMappable { }
-
 public final class TrainOnBoardAPI {
     
     private let baseURL: URL
+    private let iceDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .millisecondsSince1970
+        return decoder
+    }()
     
     public init(baseURL: URL = baseURLPortal) {
         self.baseURL = baseURL
@@ -27,28 +27,31 @@ public final class TrainOnBoardAPI {
     public func status() -> Resource<ICEStatus> {
         let request = URLRequest(path: "status", baseURL: baseURL)
         
-        return Resource(resource: JSONResource(request: request))
+        return Resource(request: request, decoder: iceDecoder)
     }
     
     public func trip() -> Resource<ICETrip> {
         let request = URLRequest(path: "tripInfo", baseURL: baseURL)
-        
-        return Resource(resource: JSONResource(request: request))
+
+        return Resource(request: request, decoder: iceDecoder)
     }
-    
+
     public func connectionTrains(at station: Station) -> Resource<TrainConnections> {
-        return connectionTrains(for: station.evaId)
+        fatalError()
+//        return connectionTrains(for: station.evaId)
     }
-    
+
     public func connectionTrains(for evaId: String) -> Resource<TrainConnections> {
-        let request = URLRequest(path: "tripInfo/connection/\(evaId)", baseURL: baseURL)
-        
-        return Resource(resource: JSONResource(request: request))
+        fatalError()
+//        let request = URLRequest(path: "tripInfo/connection/\(evaId)", baseURL: baseURL)
+//
+//        return Resource(resource: JSONResource(request: request))
     }
-    
+
     public func firstClassOffers() -> Resource<FirstClassDeliverOffers> {
-        let request = URLRequest(path: "filterTop/1259026820/0", baseURL: baseURL)
-        
-        return Resource(resource: JSONResource(request: request))
+        fatalError()
+//        let request = URLRequest(path: "filterTop/1259026820/0", baseURL: baseURL)
+//
+//        return Resource(resource: JSONResource(request: request))
     }
 }

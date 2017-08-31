@@ -31,8 +31,30 @@ import Foundation
 public struct Stop {
     public let station: Station
     public let passed: Bool
-    public let schduledTimes: StationSchedule
+    public let scheduledTimes: StationSchedule
     public let track: Track?
+}
+
+extension Stop: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case station
+        case info
+        case scheduledTimes = "timetable"
+        case track
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        station = try container.decode(Station.self, forKey: .station)
+        scheduledTimes = try container.decode(StationSchedule.self, forKey: .scheduledTimes)
+        track = try container.decode(Track.self, forKey: .track)
+        let info = try container.decode(Info.self, forKey: .info)
+        passed = info.passed
+    }
+}
+
+struct Info: Decodable {
+    public let passed: Bool
 }
 
 extension Stop: Equatable { }

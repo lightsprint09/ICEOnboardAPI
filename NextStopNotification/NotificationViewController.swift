@@ -25,8 +25,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     
     func didReceive(_ notification: UNNotification) {
         print("hallo")
-        guard let object = notification.request.content.userInfo["payload"] as? [String: Any] else { return }
-        let connection = try! TrainConnections(object: object)
+        guard let connection = notification.request.content.userInfo["payload"] as? TrainConnections else { return }
         label?.text = connection.connections.first?.destination.name
         
     }

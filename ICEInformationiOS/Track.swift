@@ -28,7 +28,12 @@
 
 import Foundation
 
-public struct Track {
+public struct Track: Decodable {
     public let actualTrack: String?
     public let scheduledTrack: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case actualTrack = "actual"
+        case scheduledTrack = "scheduled"
+    }
 }
