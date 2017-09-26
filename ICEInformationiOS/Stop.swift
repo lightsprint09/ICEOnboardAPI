@@ -47,7 +47,7 @@ extension Stop: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         station = try container.decode(Station.self, forKey: .station)
         scheduledTimes = try container.decode(StationSchedule.self, forKey: .scheduledTimes)
-        track = try container.decode(Track.self, forKey: .track)
+        track = try container.decodeIfPresent(Track.self, forKey: .track)
         let info = try container.decode(Info.self, forKey: .info)
         passed = info.passed
     }

@@ -37,15 +37,13 @@ public final class TrainOnBoardAPI {
     }
 
     public func connectionTrains(at station: Station) -> Resource<TrainConnections> {
-        fatalError()
-//        return connectionTrains(for: station.evaId)
+        return connectionTrains(for: station.evaId)
     }
 
     public func connectionTrains(for evaId: String) -> Resource<TrainConnections> {
-        fatalError()
-//        let request = URLRequest(path: "tripInfo/connection/\(evaId)", baseURL: baseURL)
-//
-//        return Resource(resource: JSONResource(request: request))
+        let request = URLRequest(path: "tripInfo/connection/\(evaId)", baseURL: baseURL)
+
+        return Resource(request: request, decoder: iceDecoder)
     }
 
     public func firstClassOffers() -> Resource<FirstClassDeliverOffers> {

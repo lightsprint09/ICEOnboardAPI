@@ -39,6 +39,7 @@
 		C6A2A4E61E9792FD00B55A0F /* ICEOnboardWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C6A2A4DA1E9792FD00B55A0F /* ICEOnboardWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C6A2A4EB1E9793C600B55A0F /* DBNetworkStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */; };
 		C6A2A4F11E97955700B55A0F /* FakeICENetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A2A4F01E97955700B55A0F /* FakeICENetworkAccess.swift */; };
+		C6CE71B01F7A11EE0066D176 /* DBNetworkStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC8F741E714110001DFB5F /* DBNetworkStack.framework */; };
 		C6CF23661EADFFBD00580862 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CF23651EADFFBD00580862 /* UserNotifications.framework */; };
 		C6CF23681EADFFBD00580862 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CF23671EADFFBD00580862 /* UserNotificationsUI.framework */; };
 		C6CF236B1EADFFBD00580862 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CF236A1EADFFBD00580862 /* NotificationViewController.swift */; };
@@ -224,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6CF23681EADFFBD00580862 /* UserNotificationsUI.framework in Frameworks */,
+				C6CE71B01F7A11EE0066D176 /* DBNetworkStack.framework in Frameworks */,
 				C6CF23661EADFFBD00580862 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,7 +612,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/DBNetworkStack.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/JSONCodable.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Sourcing.framework",
 			);
 			name = "📦 Carthage Copy";
@@ -626,6 +627,7 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/DBNetworkStack.framework",
 			);
 			name = "📦 Carthage Copy";
 			outputPaths = (
@@ -641,7 +643,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/DBNetworkStack.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/JSONCodable.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Sourcing.framework",
 			);
 			name = "📦 Carthage Copy";

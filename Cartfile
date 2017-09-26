@@ -1,1 +1,1 @@
-github "dbsystel/DBNetworkStack" "swift4"
+github "dbsystel/DBNetworkStack" == 0.7

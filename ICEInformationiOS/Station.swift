@@ -24,8 +24,8 @@ public struct StationSchedule: Decodable {
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        arrivalTime = try container.decode(Date?.self, forKey: .arrivalTime)
-        departureTime = try container.decode(Date?.self, forKey: .departureTime)
+        arrivalTime = try container.decodeIfPresent(Date.self, forKey: .arrivalTime)
+        departureTime = try container.decodeIfPresent(Date.self, forKey: .departureTime)
         
         arrivalDelay = extractDelay(try container.decode(String.self, forKey: .arrivalDelay))
         depatureDelay = extractDelay(try container.decode(String.self, forKey: .depatureDelay))
