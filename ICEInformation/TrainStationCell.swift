@@ -24,10 +24,10 @@ class TrainStationCell: UITableViewCell, ConfigurableCell {
     
     func configure(with stop: Stop) {
         stationNameLabel.text = stop.station.name
-        let delay = stop.schduledTimes.arrivalDelay ?? 0
+        let delay = stop.scheduledTimes.arrivalDelay ?? 0
         delayLabel.text = "+\(Int(delay / 60))"
         delayLabel.textColor = delay >= 5 ? .delayedRed : .inTimeGreen
-        arrivalTimeLabel.text = TrainStationCell.dateFormatter.string(from: stop.schduledTimes.arrivalTime)
+        arrivalTimeLabel.text = stop.scheduledTimes.arrivalTime.map( {TrainStationCell.dateFormatter.string(from: $0) } )
     }
 }
 

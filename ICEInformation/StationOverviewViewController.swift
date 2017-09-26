@@ -97,14 +97,14 @@ class StationOverviewViewController: UIViewController {
         let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
         let content = UNMutableNotificationContent()
         content.title = "Nächster Halt"
-        content.body = "Um \(dateFormatter.string(from: nextStop.schduledTimes.arrivalTime.addingTimeInterval(nextStop.schduledTimes.arrivalDelay ?? 0))) erreichen wir \(nextStop.station.name)."
+//        content.body = "Um \(dateFormatter.string(from: nextStop.scheduledTimes.arrivalTime.addingTimeInterval(nextStop.scheduledTimes.arrivalDelay ?? 0))) erreichen wir \(nextStop.station.name)."
         
         content.categoryIdentifier = "NextStop"
         
         content.sound = UNNotificationSound.default()
         let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
         networkService.request(trainOnBoardAPI.connectionTrains(at: nextStop.station), onCompletion: { connections in
-            content.userInfo = ["evaId": try! nextStop.station.toJSON(), "payload": try! connections.toJSON()]
+            content.userInfo = ["evaId": try! nextStop.station, "payload": try! connections]
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             UNUserNotificationCenter.current().add(request) {(error) in
                 if let error = error {

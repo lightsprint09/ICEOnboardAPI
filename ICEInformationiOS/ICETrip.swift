@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ICETrip {
+public struct ICETrip: Decodable {
     public let trainType: String
     public let trainNumber: String
     public let stops: Array<Stop>
@@ -44,5 +44,11 @@ public struct ICETrip {
         self.trainNumber = trainNumber
         self.stops = stops
         self.trainType = trainType
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case trainType
+        case trainNumber = "vzn"
+        case stops
     }
 }

@@ -39,14 +39,14 @@ class StationViewController: UIViewController {
         title = stop.station.name
         
         trackLabel.text = stop.track?.scheduledTrack
-        arrivalLabel.text = dateFormatter.string(from: stop.schduledTimes.arrivalTime)
-        depatureLabel.text = dateFormatter.string(from: stop.schduledTimes.departureTime)
-        setDelayTimeAt(lable: arrivalDelayLabel, delay: stop.schduledTimes.arrivalDelay)
-        setDelayTimeAt(lable: departureDelayLabel, delay: stop.schduledTimes.depatureDelay)
+        arrivalLabel.text = stop.scheduledTimes.arrivalTime.map( {dateFormatter.string(from: $0) } )
+        depatureLabel.text = stop.scheduledTimes.departureTime.map( {dateFormatter.string(from: $0) } ) 
+        setDelayTimeAt(lable: arrivalDelayLabel, delay: stop.scheduledTimes.arrivalDelay)
+        setDelayTimeAt(lable: departureDelayLabel, delay: stop.scheduledTimes.depatureDelay)
     }
     
     func setDelayTimeAt(lable : UILabel, delay: TimeInterval?) {
-        let delay = stop.schduledTimes.arrivalDelay ?? 0
+        let delay = stop.scheduledTimes.arrivalDelay ?? 0
         lable.text = "+\(Int(delay / 60))"
         lable.textColor = delay >= 5 ? .delayedRed : .inTimeGreen
     }

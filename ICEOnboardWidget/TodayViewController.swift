@@ -51,8 +51,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func setICETripUI(trip: ICETrip) {
         destinationLabel.text = "\(trip.trainName) nach \(trip.to.station.name)"
         let nextStop = trip.commingStops.first
-        let arrivaleDate = nextStop?.schduledTimes.arrivalTime
-        nextStopArrivalLabel.text = arrivaleDate.map { TodayViewController.dateFormatter.string(from: $0)}.map { $0 + (nextStop?.schduledTimes.depatureDelay.map {" +\(Int($0 / 60))" } ?? "") }
+        let arrivaleDate = nextStop?.scheduledTimes.arrivalTime
+        nextStopArrivalLabel.text = arrivaleDate.map { TodayViewController.dateFormatter.string(from: $0)}.map { $0 + (nextStop?.scheduledTimes.depatureDelay.map {" +\(Int($0 / 60))" } ?? "") }
         nextStopStationNameLabel.text = nextStop?.station.name
         nextStopPlatformLabel.text = (nextStop?.track?.actualTrack ?? nextStop?.track?.scheduledTrack).map { "Gleis " + $0 }
     }
