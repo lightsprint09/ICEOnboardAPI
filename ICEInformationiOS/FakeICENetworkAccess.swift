@@ -33,11 +33,11 @@ let statusPayload = "{\"serverTime\":1449749986439,\"speed\":221.8000030517578,\
 
 let tripInfoPayload = "{\"serverTime\":1449749986439,\"speed\":221.8000030517578,\"latitude\":49.404305,\"connection\":true,\"servicelevel\":\"SERVICE\",\"longitude\":8.547148}".data(using: .utf8)
 
-public class FakeICENetworkAccess: NetworkAccessProviding {
+public class FakeICENetworkAccess: NetworkAccess {
     
     public init() {}
     
-    public func load(request: URLRequest, callback: @escaping (Data?, HTTPURLResponse?, Error?) -> Void) -> NetworkTaskRepresenting {
+    public func load(request: URLRequest, callback: @escaping (Data?, HTTPURLResponse?, Error?) -> Void) -> NetworkTask {
         guard let urlString = request.url?.absoluteString else {
             callback(nil, nil, nil)
             return NetworkTaskMock()

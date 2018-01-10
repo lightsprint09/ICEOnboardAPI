@@ -23,7 +23,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     let widgetBundleIDentifier = "de.freiraum.ICEInformation.ICEOnboardWidget"
     let trainOnBoardAPI = TrainOnBoardAPI()
     
-    let networkService: NetworkServiceProviding = NetworkService(networkAccess: URLSession(configuration: .default))
+    let networkService: NetworkService = BasicNetworkService(networkAccess: URLSession(configuration: .default))
      var timer: Timer?
     
     static let dateFormatter: DateFormatter = {
